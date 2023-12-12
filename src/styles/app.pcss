@@ -1,14 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;1,9..40,400;1,9..40,700&family=Kanit:ital,wght@0,800;1,800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
-	/* @font-face {
-		font-family: "JetBrainsMono";
-		src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2"),
-			url("../fonts/JetBrainsMono-Regular.woff") format("woff"),
-			url("../fonts/JetBrainsMono-Regular.ttf") format("truetype");
-		font-weight: 400;
-		font-display: swap;
-		font-style: normal;
-	} */
+	html,
+	body {
+		@apply text-black bg-white p-20;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.font-heading {
+		font-family: "Kanit", sans-serif;
+		@apply uppercase;
+	}
+
+	main {
+		font-family: "DM Sans", sans-serif;
+	}
+
+	.font-mono {
+		font-family: "DM Mono", monospace;
+	}
 }

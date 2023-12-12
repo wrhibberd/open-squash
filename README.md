@@ -6,9 +6,8 @@ Running on Astro using Tailwind and Alpine.js
 
 ### Frontend setup
 
--   [ ] Tailwind styles
--   [ ] Fonts
-    -   [ ] responsive sizes (pcss responsive?)
+-   [x] Tailwind styles
+-   [x] Fonts
 -   [ ] Routing (view transitions api)
 
 ### Templating
@@ -27,7 +26,7 @@ Running on Astro using Tailwind and Alpine.js
 
 ### Server Setup
 
--   [ ] Push to netlify
+-   [x] Push to netlify
 
 ### Launch and SEO
 
