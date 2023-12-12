@@ -1,0 +1,65 @@
+---
+import "../styles/app.pcss";
+
+const {
+	title = "this",
+	seoTitle = "that",
+	seoDescription = "somethingElse",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={seoDescription} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={seoDescription} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:title" content={seoTitle} />
+		<meta property="og:site_name" content={seoTitle} />
+		<meta property="og:url" content={Astro.url.href} />
+		<meta property="og:description" content={seoDescription} />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:width" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={seoTitle} />
+		<meta name="twitter:description" content={seoDescription} />
+		<!-- TODO add seoImages
+            <meta
+                property="og:image"
+                content={`${Astro.url.origin}/seo/og-bocc.png`}
+            />
+            <meta
+                name="twitter:image:src"
+                content={`${Astro.url.origin}/seo/twitter-bocc.png`}
+            /> 
+        -->
+		<meta name="twitter:image:width" content="1200" />
+		<meta name="twitter:image:height" content="600" />
+		<!-- TODO add twitter
+        <meta name="twitter:site" content="@boccdotdev" />
+		<meta name="twitter:creator" content="@boccdotdev" /> 
+        -->
+		<style is:inline>
+			[x-cloak] {
+				display: none !important;
+			}
+		</style>
+		<script src="../scripts/app.js"></script>
+	</head>
+	<body class="flex flex-col min-h-screen">
+		<slot />
+	</body>
+	<!-- TODO add cabin 
+        <script
+		async
+		defer
+		rel="preconnect"
+		src="https://cabin.uofecuration.art/hello.js"
+	></script> -->
+</html>
