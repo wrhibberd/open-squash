@@ -9,22 +9,21 @@
 		@apply text-black bg-white;
 	}
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	.font-heading {
-		font-family: "Kanit", sans-serif;
-		@apply uppercase;
+	body {
+		@apply text-body font-sans;
 	}
 
-	main {
-		font-family: "DM Sans", sans-serif;
+	.text-heading-xl,
+	.text-heading-lg,
+	.text-heading-md,
+	.text-heading,
+	.text-heading-sm,
+	.text-heading-xs,
+	.text-heading-2xs,
+	.text-heading-3xs {
+		@apply uppercase font-heading;
 	}
-
-	.font-mono {
-		font-family: "DM Mono", monospace;
+	.text-label {
+		@apply font-mono;
 	}
 }

@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import Masthead from "../components/Masthead.astro";
+import mastheadImage from "../assets/images/holiday-camp.jpg";
+const image = {
+	file: mastheadImage,
+	alt: "Children and adults stretching on a squash court",
+};
+
+const title = "Summer Squash Camp • Open Squash";
+const seoTitle = "Summer Squash Camp";
+const seoDescription =
+	"We opened in 2020 with the simple mission of bringing this amazing sport to more people–at every level and from all walks of life.";
+---
+
+<Layout {title} {seoTitle} {seoDescription}>
+	<Masthead
+		heading="Summer<br/>Squash<br/>Camp"
+		primaryColour="yellow"
+		secondaryColour="forest"
+		{image}
+	/>
+</Layout>

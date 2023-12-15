@@ -1,0 +1,13 @@
+---
+interface Props {
+	as?: "h1" | "h2";
+	heading: string;
+	description?: string;
+}
+const { as: Element = "h2", heading, description } = Astro.props as Props;
+---
+
+<div>
+	<Element set:html={heading} />
+	{description && <p set:html={description} />}
+</div>

@@ -24,17 +24,38 @@ export default {
 			sans: ["DM sans", ...defaultTheme.fontFamily.sans],
 			mono: ["DM mono", ...defaultTheme.fontFamily.mono],
 		},
+		fontSize: {
+			"heading-xl": ["8.3125rem", { lineHeight: "0.75" }], // 133px
+			"heading-lg": ["6.25rem", { lineHeight: "0.75" }], // 100px
+			"heading-md": ["4.6875rem", { lineHeight: "0.75" }], // 75px
+			heading: ["3.5rem", { lineHeight: "0.75" }], // 56px
+			"heading-sm": ["2.625rem", { lineHeight: "0.75" }], // 42px
+			"heading-xs": ["2rem", { lineHeight: "0.75" }], // 32px
+			"heading-2xs": ["1.5rem", { lineHeight: "0.75" }], // 24px
+			"heading-3xs": ["1.125rem", { lineHeight: "0.75" }], // 18px
+			"body-lg": ["2rem", { lineHeight: "1.25" }], // 32px
+			"body-md": ["1.5rem", { lineHeight: "1.25" }], // 24px
+			body: ["1.125rem", { lineHeight: "1.25" }], // 18px
+			"body-sm": ["0.875rem", { lineHeight: "1.25" }], // 14px
+			label: ["0.75rem", { lineHeight: "1.25" }], // 12px
+		},
 		spacing: {
 			0: "0rem",
 			2: "0.125rem",
+			5: "0.3125rem",
+			9: "0.5625rem",
 			10: "0.625rem",
-			19: "1.1875rem",
+			14: "0.875rem",
+			15: "0.9375rem",
 			20: "1.25rem",
+			25: "1.5625rem",
 			30: "1.875rem",
+			35: "2.1875rem",
 			40: "2.5rem",
 			60: "3.75rem",
 			80: "5rem",
 			100: "6.25rem",
+			124: "7.75rem",
 			px: "1px",
 			em: "1em",
 			rem: "1rem",

@@ -1,13 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-import Masthead from "../components/Masthead.astro";
-import mastheadImage from "../assets/images/gillian-and-kate.jpeg";
-const image = {
-	file: mastheadImage,
-	alt: "Gillian and Kate",
-};
-
 import Heading from "../components/Heading.astro";
 
 const title = "Open Squash";
@@ -17,11 +9,9 @@ const seoDescription =
 ---
 
 <Layout {title} {seoTitle} {seoDescription}>
-	<Masthead
-		heading="Squash<br/>is for<br/>Everyone"
-		primaryColour="green"
-		secondaryColour="blue"
-		{image}
+	<Heading
+		as="h1"
+		heading="Contact"
+		description="Our staff is eager to help answer your questions, solve your problem, or provide you with more information"
 	/>
-	<Heading heading="Find your place to play" />
 </Layout>

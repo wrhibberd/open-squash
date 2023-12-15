@@ -1,48 +1,173 @@
 ---
 import Icon from "../assets/svgs/Icon.astro";
 import Logo from "../assets/svgs/Logo.astro";
+
+const menuItems = [
+	{
+		type: "single",
+		external: false,
+		name: "About",
+		href: "/about",
+	},
+	{
+		type: "group",
+		heading: "Members",
+		items: [
+			{
+				name: "Login",
+				external: true,
+				href: "/",
+			},
+			{
+				name: "Download App",
+				external: true,
+				href: "/",
+			},
+		],
+	},
+	{
+		type: "group",
+		heading: "Bryant Park",
+		items: [
+			{
+				name: "Schedule",
+				external: true,
+				href: "/",
+			},
+			{
+				name: "Become a Member",
+				external: true,
+				href: "/",
+			},
+		],
+	},
+	{
+		type: "group",
+		heading: "FiDi",
+		items: [
+			{
+				name: "Schedule",
+				external: true,
+				href: "/",
+			},
+			{
+				name: "Become a Member",
+				external: true,
+				href: "/",
+			},
+		],
+	},
+	{
+		type: "single",
+		external: false,
+		name: "Summer Squash Camp",
+		href: "/summer-programs",
+	},
+	{
+		type: "single",
+		external: false,
+		name: "Donate",
+		href: "/donate",
+	},
+	{
+		type: "single",
+		external: false,
+		name: "Contact",
+		href: "/contact-us",
+	},
+];
 ---
 
-<header x-data="header" class="fixed bg-white inset-x-0 top-0 pt-20 px-20 z-50">
+<header
+	x-data="header"
+	class="fixed bg-white inset-x-0 top-0 pt-10 px-10 sm:pt-20 sm:px-20 z-50"
+>
 	<div class="flex text-blue bg-green border border-current justify-between">
-		<div class="border-r p-20">
+		<div class="border-r p-10 sm:p-20">
 			<a
 				href="/"
 				aria-label="Icon Home Link"
 				class="text-blue hover:text-white transition-colors"
 			>
-				<Icon classes="w-60 h-60" />
+				<Icon classes="w-30 h-30 sm:w-40 sm:h-40 lg:w-60 lg:h-60" />
 			</a>
 		</div>
-		<div class="grow border-r p-20 flex items-center justify-center">
+		<div class="shrink p-10 sm:p-20 flex items-center justify-center">
 			<a
 				href="/"
 				aria-label="Logo Home Link"
 				class="text-blue hover:text-white transition-colors"
 			>
-				<Logo classes="h-60" />
+				<Logo classes="h-30 sm:h-40 lg:h-60" />
 			</a>
 		</div>
 		<button
 			@click="toggleMenu"
 			aria-label="Menu Toggle Button"
-			class="p-30 text-blue hover:text-white transition-colors"
+			class="p-15 sm:p-25 lg:p-35 border-l border-blue text-blue hover:text-white transition-colors"
 		>
-			<div class="w-40 h-40 relative">
+			<div class="h-20 w-20 sm:w-30 sm:h-30 relative">
 				<span
 					class="absolute inset-x-0 w-full h-2 bg-current transition-transform"
-					:class="menuOpen ? 'rotate-45 top-19' : 'top-0'"></span>
+					:class="menuOpen ? 'rotate-45 top-9 sm:top-14' : 'top-0'"
+				></span>
 				<span
-					class="absolute top-19 inset-x-0 w-full h-2 bg-current transition-transform"
+					class="absolute top-9 sm:top-14 inset-x-0 w-full h-2 bg-current transition-transform"
 					:class="menuOpen && 'scale-0'"></span>
 				<span
 					class="absolute inset-x-0 w-full h-2 bg-current transition-transform"
-					:class="menuOpen ? '-rotate-45 bottom-19' : 'bottom-0'"
+					:class="menuOpen ? '-rotate-45 bottom-9 sm:bottom-14' : 'bottom-0'"
 				></span>
 			</div>
 		</button>
 	</div>
 	<template x-teleport="body">
-		<nav x-show="menuOpen" class="fixed inset-0 bg-red w-full h-full"></nav>
+		<nav
+			x-show="menuOpen"
+			x-trap.noscroll="menuOpen"
+			x-transition.opacity
+			@keydown.escape.window="menuOpen = false"
+			class="fixed top-[4rem] sm:top-[6.5rem] lg:top-124 inset-x-0 bottom-0 bg-white pt-0 px-10 pb-10 sm:px-20 sm:pb-20 text-blue"
+		>
+			<div
+				@click.outside="menuOpen = false"
+				class="w-full h-full bg-green border-t-0 border flex flex-col divide-y divide-blue overflow-y-scroll"
+			>
+				{
+					menuItems.map((item) =>
+						item.type === "group" ? (
+							<div class="text-center h-full flex flex-col items-center justify-center p-10 sm:p-20 space-y-10 md:space-y-20">
+								<h2 class="text-heading-xs lg:text-heading-sm">
+									{item.heading}
+								</h2>
+								<div class="flex flex-col md:flex-row text-heading-3xs lg:text-heading-2xs md:space-x-30 space-y-5 md:space-y-0">
+									{item.items?.map((subItem) => (
+										<a
+											href={subItem.href}
+											target={
+												subItem.external
+													? "_blank"
+													: "_self"
+											}
+											class="hover:text-white transition-colors"
+										>
+											{subItem.name}
+										</a>
+									))}
+								</div>
+							</div>
+						) : (
+							<a
+								href={item.href}
+								target={item.external ? "_blank" : "_self"}
+								class="text-heading-xs lg:text-heading-sm text-center h-full flex items-center justify-center p-10 sm:p-20 hover:text-white transition-colors"
+							>
+								{item.name}
+							</a>
+						)
+					)
+				}
+			</div>
+		</nav>
 	</template>
 </header>

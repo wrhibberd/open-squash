@@ -1,0 +1,91 @@
+---
+import type { ImageMetadata } from "astro";
+import { Picture } from "astro:assets";
+
+interface Props {
+	primaryColour:
+		| "black"
+		| "white"
+		| "green"
+		| "forest"
+		| "blue"
+		| "lightBlue"
+		| "red"
+		| "yellow";
+	secondaryColour:
+		| "black"
+		| "white"
+		| "green"
+		| "forest"
+		| "blue"
+		| "lightBlue"
+		| "red"
+		| "yellow";
+	heading: string;
+	image?: {
+		file: ImageMetadata;
+		alt: string;
+	};
+}
+
+const gradFromClass = {
+	black: "from-black",
+	white: "from-white",
+	green: "from-green",
+	forest: "from-green-forest",
+	blue: "from-blue",
+	lightBlue: "from-blue-light",
+	red: "from-red",
+	yellow: "from-yellow",
+};
+
+const gradToClass = {
+	black: "to-black/25",
+	white: "to-white/25",
+	green: "to-green/25",
+	forest: "to-green-forest/25",
+	blue: "to-blue/25",
+	lightBlue: "to-blue-light/25",
+	red: "to-red/25",
+	yellow: "to-yellow/25",
+};
+
+const textColourClass = {
+	black: "text-black",
+	white: "text-white",
+	green: "text-green",
+	forest: "text-green-forest",
+	blue: "text-blue",
+	lightBlue: "text-blue-light",
+	red: "text-red",
+	yellow: "text-yellow",
+};
+
+const { primaryColour, secondaryColour, heading, image } = Astro.props as Props;
+---
+
+<header
+	class:list={[
+		"relative from-30% bg-gradient-to-r p-20 sm:p-40 flex items-end h-[calc(100vh-4.75rem)] sm:h-[calc(100vh-7.875rem)] lg:h-[calc(100vh-9.125rem)]",
+		`${textColourClass[primaryColour]}`,
+		`${gradFromClass[secondaryColour]}`,
+		`${gradToClass[primaryColour]}`,
+	]}
+>
+	{
+		image && (
+			<Picture
+				src={image.file}
+				alt={image.alt}
+				widths={[400, 800, 1200, 1600, 2000, 2400]}
+				formats={["webp", "avif"]}
+				fallbackFormat="jpg"
+				pictureAttributes={{
+					class: "absolute inset-0 overflow-hidden mix-blend-multiply w-full h-full",
+				}}
+				class="w-full h-full object-cover object-center"
+			/>
+		)
+	}
+	<h1 class="text-heading-xl relative" set:html={heading} />
+</header>

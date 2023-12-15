@@ -4,9 +4,9 @@ import "../styles/app.pcss";
 import Header from "../components/Header.astro";
 
 const {
-	title = "this",
-	seoTitle = "that",
-	seoDescription = "somethingElse",
+	title = "Open Squash",
+	seoTitle = "Open Squash",
+	seoDescription = "When you’re part of Open Squash—you’re part of a movement. A movement to open up Squash, and all its health and social benefits, to more people.",
 } = Astro.props;
 ---
 
@@ -16,7 +16,7 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={seoDescription} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon-active.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={seoDescription} />
@@ -62,7 +62,9 @@ const {
 	</head>
 	<body class="flex flex-col min-h-screen bg-white">
 		<Header />
-		<main class="pt-[122px] mx-20 border-t-0 border">
+		<main
+			class="pt-[4rem] sm:pt-[6.5rem] lg:pt-124 mx-10 sm:mx-20 border-t-0 border"
+		>
 			<slot />
 		</main>
 	</body>

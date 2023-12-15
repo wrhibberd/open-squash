@@ -1,8 +1,8 @@
 import Alpine from "alpinejs";
-// import focus from "@alpinejs/focus";
-// import sort from "alpinejs-sort";
+import focus from "@alpinejs/focus";
 
 /* Project helpers */
+import "./utils/favicon.js";
 import { vhFix } from "./utils/vhFix";
 
 /* Project components */
@@ -12,8 +12,7 @@ import header from "./components/header.js";
 window.Alpine = Alpine;
 
 /* Alpine plugins */
-// Alpine.plugin(focus);
-// Alpine.plugin(sort);
+Alpine.plugin(focus);
 
 /* Alpine stores */
 

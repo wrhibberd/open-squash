@@ -1,5 +1,3 @@
-import type { ImageMetadata } from "astro";
-
 const coaches = [
     {
         name:'Amr',
