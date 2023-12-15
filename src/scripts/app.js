@@ -6,8 +6,7 @@ import Alpine from "alpinejs";
 import { vhFix } from "./utils/vhFix";
 
 /* Project components */
-// import entries from "./components/entries.js";
-// import tailImage from "./components/tailImage.js";
+import header from "./components/header.js";
 
 /* Place alpine on the window to get Alpine dev tools working */
 window.Alpine = Alpine;
@@ -19,7 +18,7 @@ window.Alpine = Alpine;
 /* Alpine stores */
 
 /* Alpine data */
-// Alpine.data("entries", entries);
+Alpine.data("header", header);
 // Alpine.data("tailImage", tailImage);
 
 /* Start Alpine */

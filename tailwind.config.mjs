@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
-		colours: {
+		colors: {
 			transparent: "transparent",
 			current: "currentColor",
 			black: "#2F2626",
@@ -28,10 +28,13 @@ export default {
 			0: "0rem",
 			2: "0.125rem",
 			10: "0.625rem",
+			19: "1.1875rem",
 			20: "1.25rem",
+			30: "1.875rem",
 			40: "2.5rem",
 			60: "3.75rem",
 			80: "5rem",
+			100: "6.25rem",
 			px: "1px",
 			em: "1em",
 			rem: "1rem",
@@ -45,6 +48,9 @@ export default {
 			1200: "1200ms",
 		},
 		extend: {
+			borderWidth: {
+				DEFAULT: "2px",
+			},
 			transitionTimingFunction: {
 				DEFAULT:
 					"linear( 0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 )",

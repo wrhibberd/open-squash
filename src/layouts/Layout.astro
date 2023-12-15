@@ -1,6 +1,8 @@
 ---
 import "../styles/app.pcss";
 
+import Header from "../components/Header.astro";
+
 const {
 	title = "this",
 	seoTitle = "that",
@@ -58,8 +60,11 @@ const {
 		</style>
 		<script src="../scripts/app.js"></script>
 	</head>
-	<body class="flex flex-col min-h-screen">
-		<slot />
+	<body class="flex flex-col min-h-screen bg-white">
+		<Header />
+		<main class="pt-[122px] mx-20 border-t-0 border">
+			<slot />
+		</main>
 	</body>
 	<!-- TODO add cabin 
         <script

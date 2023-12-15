@@ -1,0 +1,48 @@
+---
+import Icon from "../assets/svgs/Icon.astro";
+import Logo from "../assets/svgs/Logo.astro";
+---
+
+<header x-data="header" class="fixed bg-white inset-x-0 top-0 pt-20 px-20 z-50">
+	<div class="flex text-blue bg-green border border-current justify-between">
+		<div class="border-r p-20">
+			<a
+				href="/"
+				aria-label="Icon Home Link"
+				class="text-blue hover:text-white transition-colors"
+			>
+				<Icon classes="w-60 h-60" />
+			</a>
+		</div>
+		<div class="grow border-r p-20 flex items-center justify-center">
+			<a
+				href="/"
+				aria-label="Logo Home Link"
+				class="text-blue hover:text-white transition-colors"
+			>
+				<Logo classes="h-60" />
+			</a>
+		</div>
+		<button
+			@click="toggleMenu"
+			aria-label="Menu Toggle Button"
+			class="p-30 text-blue hover:text-white transition-colors"
+		>
+			<div class="w-40 h-40 relative">
+				<span
+					class="absolute inset-x-0 w-full h-2 bg-current transition-transform"
+					:class="menuOpen ? 'rotate-45 top-19' : 'top-0'"></span>
+				<span
+					class="absolute top-19 inset-x-0 w-full h-2 bg-current transition-transform"
+					:class="menuOpen && 'scale-0'"></span>
+				<span
+					class="absolute inset-x-0 w-full h-2 bg-current transition-transform"
+					:class="menuOpen ? '-rotate-45 bottom-19' : 'bottom-0'"
+				></span>
+			</div>
+		</button>
+	</div>
+	<template x-teleport="body">
+		<nav x-show="menuOpen" class="fixed inset-0 bg-red w-full h-full"></nav>
+	</template>
+</header>
