@@ -87,5 +87,8 @@ const { primaryColour, secondaryColour, heading, image } = Astro.props as Props;
 			/>
 		)
 	}
-	<h1 class="text-heading-xl relative" set:html={heading} />
+	<h1
+		class="text-heading-lg sm:text-heading-xl relative"
+		set:html={heading}
+	/>
 </header>

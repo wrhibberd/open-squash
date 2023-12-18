@@ -7,7 +7,17 @@ interface Props {
 const { as: Element = "h2", heading, description } = Astro.props as Props;
 ---
 
-<div>
-	<Element set:html={heading} />
-	{description && <p set:html={description} />}
+<div class="py-80 px-20 text-center space-y-20">
+	<Element
+		class="tw-balance text-heading-sm sm:text-heading"
+		set:html={heading}
+	/>
+	{
+		description && (
+			<p
+				class="tw-balance w-full sm:w-1/2 mx-auto"
+				set:html={description}
+			/>
+		)
+	}
 </div>
