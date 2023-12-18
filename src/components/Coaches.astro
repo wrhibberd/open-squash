@@ -1,0 +1,97 @@
+---
+import { Picture } from "astro:assets";
+import Heading from "./Heading.astro";
+import coaches from "../data/coaches";
+---
+
+<section
+	class="isolate border-t -mt-2"
+	x-ignore
+	ax-load
+	x-data="coachesCarousel()"
+>
+	<Heading headingText="Our Top Tier Team" />
+	<div class="grid grid-cols-1 lg:grid-cols-3 border-t">
+		<div class="col-span-2 border-b lg:border-b-0 lg:border-r p-20">
+			<div x-ref="carousel" class="swiper h-full">
+				<ul class="swiper-wrapper">
+					{
+						coaches.map((coach) => (
+							<li class="swiper-slide">
+								<div class="bg-green border border-blue rounded flex flex-col h-full">
+									{coach.image && (
+										<Picture
+											src={coach.image}
+											alt={coach.name}
+											widths={[400, 800, 1200]}
+											sizes="100vw"
+											formats={["webp", "avif"]}
+											fallbackFormat="jpg"
+											pictureAttributes={{
+												class: "w-full h-[25rem] min-h-[25rem] ",
+											}}
+											class="object-cover w-full h-full object-top"
+										/>
+									)}
+									<div class="border-t text-blue border-blue p-20 flex h-full flex-col justify-between grow">
+										<div class="pb-40">
+											<h3 class="text-heading-sm pb-10">
+												{coach.name}
+											</h3>
+											<p class="text-body-md">
+												{coach.position}
+											</p>
+											{coach.details && (
+												<p class="text-label">
+													{coach.details}
+												</p>
+											)}
+										</div>
+										<div class="flex flex-wrap -m-10 items-start">
+											<button class="inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold m-10">
+												Read Bio
+											</button>
+											{coach.link && (
+												<a
+													href={coach.link}
+													target="_blank"
+													class="inline-block text-black m-10 hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+												>
+													Book Lesson
+												</a>
+											)}
+										</div>
+									</div>
+								</div>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+		<div class="p-20 flex flex-col justify-between">
+			<div class="space-y-20 pb-40">
+				<h2 class="text-heading-sm">Up your game with our coaches</h2>
+				<p>
+					We’ve built the best team in squash to bring the game to
+					everyone. We’ve brought the most talented and supportive
+					coaches from all over the world. They combine world-class
+					training and skills with welcoming, patient and encouraging
+					teaching styles. They’re focused on helping you improve.
+				</p>
+			</div>
+			<div class="flex -space-x-2 text-label">
+				<button
+					@click="prev()"
+					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
+					>Prev</button
+				>
+				<button
+					@click="next()"
+					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
+					>Next</button
+				>
+			</div>
+		</div>
+	</div>
+</section>

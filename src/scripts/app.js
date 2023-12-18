@@ -24,6 +24,7 @@ Alpine.data("header", header);
 /* Start Alpine */
 AsyncAlpine.init(Alpine)
 	.data("locationsMap", () => import("./components/locationsMap.js"))
+	.data("coachesCarousel", () => import("./components/coachesCarousel.js"))
 	.start();
 Alpine.start();
 init();
