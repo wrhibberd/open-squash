@@ -15,6 +15,7 @@ export default function locationsMap() {
 		center: [-73.99275249760754, 40.7421986365454],
 		zoom: 11,
 	});
+	const markers = this.$root.querySelectorAll(".location");
 	let bounds = {};
 
 	return {
@@ -22,6 +23,7 @@ export default function locationsMap() {
 		markerPositions: [],
 		init() {
 			this.addMarkers();
+
 			map.scrollZoom.disable();
 		},
 
@@ -54,35 +56,38 @@ export default function locationsMap() {
 				})
 				// Wait for map bounds to be set
 				.then(() => {
+					this.postionMap();
 					// add observer to resize map, sidebar and set map bounds on window resize
 					new ResizeObserver(() => {
 						map.resize();
-						this.postionMap();
 					}).observe(this.$root);
 				});
 		},
 
+		zoomIn() {
+			map.zoomIn();
+		},
+
+		zoomOut() {
+			map.zoomOut();
+		},
+
 		toggleActiveItem(id, coordinates) {
-			if (this.activeItem === id) {
+			if (this.activeItem == id) {
 				this.activeItem = null;
 				this.postionMap();
-			} else {
-				this.activeItem = id;
-				map.flyTo({
-					center: coordinates,
-					zoom: 20,
-				});
+				return;
 			}
+			this.activeItem = id;
+			map.flyTo({
+				center: coordinates,
+				zoom: 15,
+			});
 		},
-		clearActiveMarker() {
-			// clear active marker
-			this.activeMarker = null;
-			// set map bounds to fit all markers
-			this.postionMap();
-		},
+
 		postionMap(boudingCoordinates = bounds) {
 			map.fitBounds(boudingCoordinates, {
-				maxZoom: 20,
+				maxZoom: 15,
 				padding: 96,
 				duration: 1000,
 			});

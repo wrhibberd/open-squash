@@ -1,5 +1,4 @@
 ---
-import type { ImageMetadata } from "astro";
 import { Picture } from "astro:assets";
 
 const cardStyles = {
@@ -12,7 +11,7 @@ const { theme, id, title, address, facalities, link, image } = Astro.props;
 
 <div
 	class:list={["border rounded", `${cardStyles[theme]}`]}
-	x-show={`activeItem == ${id}`}
+	x-show={`activeItem == '${id}'`}
 	role="article"
 >
 	<Picture
@@ -29,7 +28,7 @@ const { theme, id, title, address, facalities, link, image } = Astro.props;
 		<p class="text-label pb-20">{facalities}</p>
 		<a
 			href={link}
-			class="inline-block bg-yellow border rounded-lg px-20 py-10 font-bold"
+			class="inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
 			>Read More</a
 		>
 	</div>

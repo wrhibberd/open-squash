@@ -20,9 +20,16 @@ const fidiImage = {
 
 <section x-ignore ax-load="visible" x-data="locationsMap()">
 	<Heading headingText="Find your place to play" />
-	<div class="grid grid-cols-3 divide-x-2 border-t">
-		<div class="flex flex-col justify-between space-y-40 p-20">
-			<h2 class="text-heading-sm">
+	<div class="grid grid-cols-1 lg:grid-cols-3 border-t">
+		<div class="p-20 border-b lg:hidden">
+			<div aria-hidden class="text-heading-sm">
+				We have two beautiful centers in the ❤️ of NYC.
+			</div>
+		</div>
+		<div
+			class="row-start-3 lg:row-start-auto flex flex-col justify-between p-20 border-t lg:border-t-0 lg:border-r"
+		>
+			<h2 class="text-heading-sm hidden lg:block pb-40">
 				We have two beautiful centers in the ❤️ of NYC.
 			</h2>
 			<div x-cloak>
@@ -34,7 +41,7 @@ const fidiImage = {
 					<p>Click a location on the map to find out more</p>
 				</div>
 				<LocationCard
-					id="1"
+					id="bp"
 					theme="greenBlue"
 					title="Bryant Park"
 					address="25 West 39th Street 5th Floor, New York NY 10018"
@@ -43,7 +50,7 @@ const fidiImage = {
 					link="#"
 				/>
 				<LocationCard
-					id="2"
+					id="fi"
 					theme="blueGreen"
 					title="FiDi"
 					address="100 Pearl Street 14th Floor, New York NY 10004"
@@ -53,19 +60,49 @@ const fidiImage = {
 				/>
 			</div>
 		</div>
-		<div class="col-span-2 min-h-[600px]">
+		<div
+			class="col-span-2 min-h-[calc(100vw-1.25rem)] sm:min-h-[calc(100vw-2.5rem)] lg:min-h-[600px] relative"
+		>
 			<div x-ref="map" class="w-full h-full"></div>
+			<div class="absolute top-20 left-20 flex -space-x-2 text-label">
+				<button
+					@click="toggleActiveItem('bp', [-73.98386457258847, 40.75260308346485])"
+					class="border rounded-l px-10 py-5 transition-colors hover:bg-green hover:text-blue hover:z-20"
+					:class={`activeItem == 'bp' ? 'bg-green text-blue relative z-10' : 'bg-white text-black'`}
+					>Bryant Park</button
+				>
+				<button
+					@click="toggleActiveItem('fi', [-74.00968775150918, 40.704367965085936])"
+					class="border rounded-r px-10 py-5 transition-colors hover:bg-blue hover:text-green hover:z-20"
+					:class="activeItem == 'fi' ? 'bg-blue text-green relative z-10' : 'bg-white text-black'"
+					>FiDi</button
+				>
+			</div>
+			<div
+				class="absolute bottom-20 left-20 flex -space-x-2 text-label z-50"
+			>
+				<button
+					@click="zoomOut()"
+					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
+					>-</button
+				>
+				<button
+					@click="zoomIn()"
+					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
+					>+</button
+				>
+			</div>
 		</div>
 	</div>
 	<!-- Markers -->
 	<div class="hidden">
 		<Marker
-			id="1"
+			id="fi"
 			latlng="-74.00968775150918, 40.704367965085936"
 			theme="greenBlue"
 		/>
 		<Marker
-			id="2"
+			id="bp"
 			latlng="-73.98386457258847, 40.75260308346485"
 			theme="blueGreen"
 		/>

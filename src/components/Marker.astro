@@ -20,9 +20,9 @@ const { theme, latlng, id } = Astro.props as Props;
 
 <div
 	data-latlng={latlng}
-	@click={`toggleActiveItem(${id}, [${latlng}])`}
+	@click={`toggleActiveItem('${id}', [${latlng}])`}
 	class:list={["location !transition-colors w-60 ", `${hoverStyles[theme]}`]}
-	:class={`activeItem == ${id} ? '${activeStyles[theme]}' : 'fill-white'`}
+	:class={`activeItem == '${id}' ? '${activeStyles[theme]}' : 'fill-white'`}
 >
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 76">
 		<path

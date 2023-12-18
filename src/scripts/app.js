@@ -1,5 +1,5 @@
-import Alpine from "alpinejs";
 import AsyncAlpine from "async-alpine";
+import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
 
 /* Project helpers */
