@@ -3,12 +3,11 @@ import Layout from "../layouts/Layout.astro";
 
 import Masthead from "../components/Masthead.astro";
 import mastheadImage from "../assets/images/gillian-and-kate.jpeg";
+import Locations from "../components/Locations.astro";
 const image = {
 	file: mastheadImage,
 	alt: "Gillian and Kate",
 };
-
-import Heading from "../components/Heading.astro";
 
 const title = "Open Squash";
 const seoTitle = "Open Squash";
@@ -23,5 +22,5 @@ const seoDescription =
 		secondaryColour="blue"
 		{image}
 	/>
-	<Heading heading="Find your place to play" />
+	<Locations />
 </Layout>

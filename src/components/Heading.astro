@@ -1,16 +1,16 @@
 ---
 interface Props {
 	as?: "h1" | "h2";
-	heading: string;
+	headingText: string;
 	description?: string;
 }
-const { as: Element = "h2", heading, description } = Astro.props as Props;
+const { as: Element = "h2", headingText, description } = Astro.props as Props;
 ---
 
 <div class="py-80 px-20 text-center space-y-20">
 	<Element
 		class="tw-balance text-heading-sm sm:text-heading"
-		set:html={heading}
+		set:html={headingText}
 	/>
 	{
 		description && (

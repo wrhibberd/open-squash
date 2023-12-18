@@ -1,4 +1,5 @@
 import Alpine from "alpinejs";
+import AsyncAlpine from "async-alpine";
 import focus from "@alpinejs/focus";
 
 /* Project helpers */
@@ -21,6 +22,9 @@ Alpine.data("header", header);
 // Alpine.data("tailImage", tailImage);
 
 /* Start Alpine */
+AsyncAlpine.init(Alpine)
+	.data("locationsMap", () => import("./components/locationsMap.js"))
+	.start();
 Alpine.start();
 init();
 
