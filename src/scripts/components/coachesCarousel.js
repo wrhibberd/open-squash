@@ -3,15 +3,11 @@ import "swiper/css";
 
 export default function coachesCarousel() {
 	const swiper = new Swiper(this.$refs.carousel, {
-		slidesPerView: 1,
+		slidesPerView: "auto",
 		spaceBetween: 20,
 		grabCursor: true,
-		breakpoints: {
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-		},
+		slidesOffsetBefore: 20,
+		slidesOffsetAfter: 20,
 	});
 	return {
 		next() {
