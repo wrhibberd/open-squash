@@ -23,8 +23,13 @@ import SocialLinks from "./SocialLinks.astro";
 			>
 		</div>
 		<div x-show="!success">
-			<form name="contact" method="POST" class="form" x-validate netlify>
-				<input type="hidden" name="form" value="contact" hidden />
+			<form
+				name="contact"
+				method="POST"
+				class="form"
+				x-validate
+				data-netlify="true"
+			>
 				<fieldset>
 					<label for="name">Name</label>
 					<input
