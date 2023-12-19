@@ -72,13 +72,13 @@ const fidiImage = {
 			<div class="absolute top-20 left-20 flex -space-x-2 text-label">
 				<button
 					@click="toggleActiveItem('bp', [-73.98386457258847, 40.75260308346485])"
-					class="border rounded-l px-10 py-5 transition-colors hover:bg-green hover:text-blue hover:z-20"
+					class="border rounded-l px-10 py-5 transition-colors hover:bg-green hover:text-blue focus:bg-green focus:text-blue hover:z-20 focus:ring-0 focus:ring-offset-0"
 					:class={`activeItem == 'bp' ? 'bg-green text-blue relative z-10' : 'bg-white text-black'`}
 					>Bryant Park</button
 				>
 				<button
 					@click="toggleActiveItem('fi', [-74.00968775150918, 40.704367965085936])"
-					class="border rounded-r px-10 py-5 transition-colors hover:bg-blue hover:text-green hover:z-20"
+					class="border rounded-r px-10 py-5 transition-colors hover:bg-blue hover:text-green focus:bg-blue focus:text-green hover:z-20 focus:ring-0 focus:ring-offset-0"
 					:class="activeItem == 'fi' ? 'bg-blue text-green relative z-10' : 'bg-white text-black'"
 					>FiDi</button
 				>
@@ -88,12 +88,12 @@ const fidiImage = {
 			>
 				<button
 					@click="zoomOut()"
-					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
+					class="bg-white focus:ring-0 focus:ring-offset-0 focus:bg-black focus:text-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
 					>-</button
 				>
 				<button
 					@click="zoomIn()"
-					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
+					class="bg-white focus:ring-0 focus:ring-offset-0 focus:bg-black focus:text-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
 					>+</button
 				>
 			</div>

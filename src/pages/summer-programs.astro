@@ -58,4 +58,102 @@ const seoDescription =
 			</ul>
 		</div>
 	</section>
+	<section class="px-20 space-y-40 py-80 border-t">
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto" x-data="form" x-cloak>
+			<h2 class="text-heading-xs sm:text-heading-sm pb-20">
+				Join the Summer 2024 Camp be the first to know, sign up for
+				updates:
+			</h2>
+
+			<div x-show="success">
+				<p class="pb-20">
+					Hi <span x-text="name"></span>, thankyou for signing up for
+					Summer Camp 2024 updates.
+				</p>
+			</div>
+			<div x-show="!success">
+				<form
+					name="summer camp 2024"
+					method="POST"
+					class="form"
+					x-validate
+					data-netlify="true"
+				>
+					<input
+						type="hidden"
+						name="subject"
+						:value="`Summer Camp 2024 registration from ${name}`"
+					/>
+					<fieldset>
+						<label for="name">Name</label>
+						<input
+							type="text"
+							name="name"
+							x-model="name"
+							placeholder="Jahangir Khan"
+							data-error-msg="a name is required"
+							x-validate.required
+						/>
+					</fieldset>
+					<fieldset>
+						<label for="email">Email</label>
+						<input
+							type="email"
+							name="email"
+							placeholder="goat@squashmaster.com"
+							data-error-msg="an email is required"
+							x-validate.required
+							x-validate.email
+						/>
+					</fieldset>
+					<fieldset>
+						<label for="telephone">Phone Number</label>
+						<input
+							type="tel"
+							name="telephone"
+							placeholder="576 731-6777"
+						/>
+					</fieldset>
+					<fieldset>
+						<label for="experience">Experience</label>
+						<select
+							name="experience"
+							x-validate.required
+							data-error-msg="you must pick an experience level"
+						>
+							<option value="" disabled selected
+								>Choose Experience</option
+							>
+							<option value="Beginner">Beginner</option>
+							<option value="Intermediate">Intermediate</option>
+							<option value="Advanced">Advanced</option>
+						</select>
+					</fieldset>
+					<button
+						id="formSubmit"
+						type="submit"
+						class="flex items-center disabled:opacity-50 disabled:pointer-events-none text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+						x-on:click.prevent="submitForm()"
+						x-on:submit.prevent="submitForm()"
+						x-bind:disabled="!$validate.isComplete($root.querySelector('form'))"
+					>
+						Submit
+						<svg
+							class="w-rem ml-10"
+							xmlns="http://www.w3.org/2000/svg"
+							stroke="currentColor"
+							viewBox="0 0 18 16"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M1.5 7.69995h15m0 0L9.75.949951M16.5 7.69995 9.75 14.45"
+							></path>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
 </Layout>

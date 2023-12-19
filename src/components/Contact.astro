@@ -4,8 +4,12 @@ import contactImage from "../assets/images/contact.jpg";
 import SocialLinks from "./SocialLinks.astro";
 ---
 
-<section class="border-t flex h-full grow">
-	<div class="w-1/2 border-r p-20" x-data="form" x-cloak>
+<section class="border-t sm:flex h-full grow">
+	<div
+		class="sm:w-1/2 sm:border-r border-b sm:border-b-0 p-20"
+		x-data="form"
+		x-cloak
+	>
 		<h2 class="text-heading-xs sm:text-heading-sm pb-20">Ask A Question</h2>
 		<p class="pb-20 max-w-[25ch]">
 			Fill out the form and expect an email, phone call, or text within 24
@@ -30,6 +34,11 @@ import SocialLinks from "./SocialLinks.astro";
 				x-validate
 				data-netlify="true"
 			>
+				<input
+					type="hidden"
+					name="subject"
+					:value="`Question from ${name}`"
+				/>
 				<fieldset>
 					<label for="name">Name</label>
 					<input
@@ -50,6 +59,14 @@ import SocialLinks from "./SocialLinks.astro";
 						data-error-msg="an email is required"
 						x-validate.required
 						x-validate.email
+					/>
+				</fieldset>
+				<fieldset>
+					<label for="telephone">Phone Number</label>
+					<input
+						type="tel"
+						name="telephone"
+						placeholder="576 731-6777"
 					/>
 				</fieldset>
 				<fieldset>
@@ -102,17 +119,30 @@ import SocialLinks from "./SocialLinks.astro";
 				<button
 					id="formSubmit"
 					type="submit"
-					class="disabled:opacity-50 disabled:pointer-events-none inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+					class="flex items-center disabled:opacity-50 disabled:pointer-events-none text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
 					x-on:click.prevent="submitForm()"
 					x-on:submit.prevent="submitForm()"
 					x-bind:disabled="!$validate.isComplete($root.querySelector('form'))"
 				>
 					Submit
+					<svg
+						class="w-rem ml-10"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke="currentColor"
+						viewBox="0 0 18 16"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M1.5 7.69995h15m0 0L9.75.949951M16.5 7.69995 9.75 14.45"
+						></path>
+					</svg>
 				</button>
 			</form>
 		</div>
 	</div>
-	<div class="w-1/2 flex flex-col">
+	<div class="sm:w-1/2 flex flex-col">
 		<div class="p-20">
 			<h2 class="text-heading-xs sm:text-heading-sm pb-20">
 				Want to chat now?
@@ -129,14 +159,16 @@ import SocialLinks from "./SocialLinks.astro";
 			<h2 class="text-heading-xs sm:text-heading-sm pb-20">Follow us</h2>
 			<SocialLinks inverse="true" />
 		</div>
-		<div class="border-t relative h-full min-h-[300px]">
+		<div class="border-t relative h-full sm:min-h-[300px]">
 			<Picture
 				src={contactImage}
 				alt="a drill on a squash court at Open Squash"
 				widths={[400, 800, 1200, 1600]}
 				formats={["webp", "avif"]}
 				fallbackFormat="jpg"
-				pictureAttributes={{ class: "absolute inset-0 w-full h-full" }}
+				pictureAttributes={{
+					class: "sm:absolute sm:inset-0 w-full h-full",
+				}}
 				class="w-full h-full object-cover lg:object-[0,-100px]"
 			/>
 		</div>
