@@ -1,0 +1,51 @@
+---
+
+---
+
+<div x-data={"{ selectedAmount: '10' }"} class="py-40 space-y-20">
+	<div class="flex flex-wrap -m-10 items-start">
+		<button
+			@click="selectedAmount = '10'"
+			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
+			:class={"selectedAmount === '10' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
+			>$10</button
+		>
+		<button
+			@click="selectedAmount = '50'"
+			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
+			:class={"selectedAmount === '50' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
+			>$50</button
+		>
+		<button
+			@click="selectedAmount = '100'"
+			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
+			:class={"selectedAmount === '100' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
+			>$100</button
+		>
+		<button
+			@click="selectedAmount = 'other'"
+			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
+			:class={"selectedAmount === 'other' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
+			>Choose Ammount</button
+		>
+	</div>
+	<a
+		href="#"
+		class="inline-flex items-center text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+	>
+		Checkout
+		<svg
+			class="w-rem ml-10"
+			xmlns="http://www.w3.org/2000/svg"
+			stroke="currentColor"
+			viewBox="0 0 18 16"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M1.5 7.69995h15m0 0L9.75.949951M16.5 7.69995 9.75 14.45"
+			></path>
+		</svg>
+	</a>
+</div>
