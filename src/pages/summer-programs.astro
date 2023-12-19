@@ -2,11 +2,11 @@
 import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Masthead from "../components/Masthead.astro";
-import clinicImage from "../assets/images/clinic.png";
+import campImage from "../assets/images/1A6A0152.jpg";
 import mastheadImage from "../assets/images/holiday-camp.jpg";
 const image = {
-	file: mastheadImage,
-	alt: "Children and adults stretching on a squash court",
+	file: campImage,
+	alt: "Coaching at an Open Squash summer camp",
 };
 
 const title = "Summer Squash Camp • Open Squash";
@@ -34,8 +34,8 @@ const seoDescription =
 		</div>
 		<figure class="w-full lg:w-1/2 mx-auto">
 			<Picture
-				src={clinicImage}
-				alt="Peter Creed coaching at an Open Squash summer camp"
+				src={mastheadImage}
+				alt="Children and adults on a squash court"
 				widths={[400, 800, 1200, 1600]}
 				formats={["webp", "avif"]}
 				fallbackFormat="jpg"
