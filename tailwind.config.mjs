@@ -100,5 +100,5 @@ export default {
 			},
 		},
 	},
-	plugins: [require("autoprefixer")],
+	plugins: [require("autoprefixer"), require("@tailwindcss/forms")],
 };

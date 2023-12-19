@@ -1,0 +1,139 @@
+---
+import { Picture } from "astro:assets";
+import contactImage from "../assets/images/contact.jpg";
+import SocialLinks from "./SocialLinks.astro";
+---
+
+<section class="border-t flex h-full grow">
+	<div class="w-1/2 border-r p-20" x-data="form" x-cloak>
+		<h2 class="text-heading-xs sm:text-heading-sm pb-20">Ask A Question</h2>
+		<p class="pb-20 max-w-[25ch]">
+			Fill out the form and expect an email, phone call, or text within 24
+			hours.
+		</p>
+		<div x-show="success">
+			<p class="pb-20">
+				Hi <span x-text="name"></span>, thankyou for your question we
+				will get back to you with an answer asap.
+			</p>
+			<button
+				@click="success = false"
+				class="inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+				>Ask Another Question</button
+			>
+		</div>
+		<div x-show="!success">
+			<form name="contact" method="POST" class="form" x-validate netlify>
+				<input type="hidden" name="form" value="contact" hidden />
+				<fieldset>
+					<label for="name">Name</label>
+					<input
+						type="text"
+						name="name"
+						x-model="name"
+						placeholder="Jahangir Khan"
+						data-error-msg="a name is required"
+						x-validate.required
+					/>
+				</fieldset>
+				<fieldset>
+					<label for="email">Email</label>
+					<input
+						type="email"
+						name="email"
+						placeholder="goat@squashmaster.com"
+						data-error-msg="an email is required"
+						x-validate.required
+						x-validate.email
+					/>
+				</fieldset>
+				<fieldset>
+					<label for="subject">Subject</label>
+					<select
+						name="subject"
+						x-validate.required
+						data-error-msg="you must pick a subject"
+					>
+						<option value="" disabled selected
+							>Choose Subject</option
+						>
+						<option value="Interested in membership"
+							>Interested in membership</option
+						>
+						<option value="Setting up 1:1 lessons"
+							>Setting up 1:1 lessons</option
+						>
+						<option value="Free intro to squash class"
+							>Free intro to squash class</option
+						>
+						<option value="Setting up a tour"
+							>Setting up a tour</option
+						>
+						<option value="Kids classes">Kids classes</option>
+						<option value="Financial aid — Junior"
+							>Financial aid — Junior</option
+						>
+						<option value="Financial aid — Adult"
+							>Financial aid — Adult</option
+						>
+						<option value="Financial aid — Family"
+							>Financial aid — Family</option
+						>
+						<option value="Corporate programs"
+							>Corporate programs</option
+						>
+						<option value="Other">Other</option>
+					</select>
+				</fieldset>
+				<fieldset>
+					<label for="message">Message</label>
+					<textarea
+						name="message"
+						rows="4"
+						placeholder="Can you teach this old dog some new tricks?"
+						x-validate.required
+						data-error-msg="a message is required"></textarea>
+				</fieldset>
+				<button
+					id="formSubmit"
+					type="submit"
+					class="disabled:opacity-50 disabled:pointer-events-none inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
+					x-on:click.prevent="submitForm()"
+					x-on:submit.prevent="submitForm()"
+					x-bind:disabled="!$validate.isComplete($root.querySelector('form'))"
+				>
+					Submit
+				</button>
+			</form>
+		</div>
+	</div>
+	<div class="w-1/2 flex flex-col">
+		<div class="p-20">
+			<h2 class="text-heading-xs sm:text-heading-sm pb-20">
+				Want to chat now?
+			</h2>
+			<p>
+				Give us a call at: <a
+					href="tel:914-315-4070"
+					class="hover:text-black/50 transition-colors"
+					>(914) 315-4070.</a
+				>
+			</p>
+		</div>
+		<div class="border-t p-20">
+			<h2 class="text-heading-xs sm:text-heading-sm pb-20">Follow us</h2>
+			<SocialLinks inverse="true" />
+		</div>
+		<div class="border-t relative h-full min-h-[300px]">
+			<Picture
+				src={contactImage}
+				alt="a drill on a squash court at Open Squash"
+				widths={[400, 800, 1200, 1600]}
+				formats={["webp", "avif"]}
+				fallbackFormat="jpg"
+				pictureAttributes={{ class: "absolute inset-0 w-full h-full" }}
+				class="w-full h-full object-cover lg:object-[0,-100px]"
+			/>
+		</div>
+	</div>
+</section>

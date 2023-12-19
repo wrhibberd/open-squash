@@ -4,10 +4,19 @@
 	@apply pointer-events-none;
 }
 
+.error-msg {
+	@apply text-red text-label;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
+	/* 
+		* {
+			@apply focus:outline-none focus:ring-2 focus:ring-blue/50 focus:ring-offset-2 focus:ring-offset-white focus:border-black;
+		} 
+	*/
 	html,
 	body {
 		@apply text-black bg-white;
@@ -29,6 +38,41 @@
 	}
 	.text-label {
 		@apply font-mono;
+	}
+
+	form {
+		@apply space-y-20;
+		fieldset {
+			@apply flex flex-col space-y-5;
+		}
+		label {
+			@apply text-label;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		input[type="number"],
+		input[type="url"],
+		input[type="date"],
+		input[type="datetime-local"],
+		input[type="month"],
+		input[type="week"],
+		input[type="time"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="checkbox"],
+		input[type="radio"],
+		select,
+		select[multiple],
+		textarea {
+			@apply bg-white placeholder:text-black/50 border border-black rounded w-full focus:outline-none focus:ring-2 focus:ring-blue/50 focus:ring-offset-2 focus:ring-offset-white focus:border-black;
+		}
+	}
+}
+@layer components {
+	.rich-text > * {
+		@apply mb-em last:mb-0;
 	}
 }
 @layer utilities {

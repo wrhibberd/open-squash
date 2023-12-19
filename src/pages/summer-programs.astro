@@ -1,7 +1,8 @@
 ---
+import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-
 import Masthead from "../components/Masthead.astro";
+import clinicImage from "../assets/images/clinic.png";
 import mastheadImage from "../assets/images/holiday-camp.jpg";
 const image = {
 	file: mastheadImage,
@@ -21,4 +22,40 @@ const seoDescription =
 		secondaryColour="forest"
 		{image}
 	/>
+	<section class="px-20 space-y-40 py-80">
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
+			<h2 class="text-heading-sm sm:text-heading pb-20">
+				Thanks for a great 2023 summer!
+			</h2>
+			<p>
+				We’re working hard to craft another exceptional summer of squash
+				in 2024. Sign up below for updates, and early registration info!
+			</p>
+		</div>
+		<figure class="w-full lg:w-1/2 mx-auto">
+			<Picture
+				src={clinicImage}
+				alt="Peter Creed coaching at an Open Squash summer camp"
+				widths={[400, 800, 1200, 1600]}
+				formats={["webp", "avif"]}
+				fallbackFormat="jpg"
+				class="w-full"
+			/>
+		</figure>
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
+			<h2 class="text-heading-xs sm:text-heading-sm pb-20">
+				highlights from the summer of ‘23
+			</h2>
+			<ul class="list-disc list-inside">
+				<li>Brand new, state-of-the-art facility</li>
+				<li>Full and half-day options</li>
+				<li>Multi skill-level camps</li>
+				<li>Exceptional professional coaches</li>
+				<li>Harvard, Brown & Columbia College Coach Camps</li>
+				<li>World ranked PSA Pro Camps</li>
+				<li>Outrageously fun and encouraging environment</li>
+				<li>Income-based discounts available</li>
+			</ul>
+		</div>
+	</section>
 </Layout>
