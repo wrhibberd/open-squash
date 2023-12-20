@@ -2,35 +2,39 @@
 
 ---
 
-<div x-data={"{ selectedAmount: '10' }"} class="py-40 space-y-20">
+<div
+	x-data={"{ selectedAmount: '10', link: 'https://donate.stripe.com/8wM29qdQX8E42vC3cc' }"}
+	class="py-40 space-y-20"
+>
 	<div class="flex flex-wrap -m-10 items-start">
 		<button
-			@click="selectedAmount = '10'"
+			@click="selectedAmount = '10'; link = 'https://donate.stripe.com/8wM29qdQX8E42vC3cc'"
 			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
 			:class={"selectedAmount === '10' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
 			>$10</button
 		>
 		<button
-			@click="selectedAmount = '50'"
+			@click="selectedAmount = '50'; link = 'https://donate.stripe.com/9AQdS83cjcUkfio5kl'"
 			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
 			:class={"selectedAmount === '50' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
 			>$50</button
 		>
 		<button
-			@click="selectedAmount = '100'"
+			@click="selectedAmount = '100'; link = 'https://donate.stripe.com/7sI7tK28f7A02vCbIK'"
 			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
 			:class={"selectedAmount === '100' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
 			>$100</button
 		>
 		<button
-			@click="selectedAmount = 'other'"
+			@click="selectedAmount = 'other'; link = 'https://donate.stripe.com/5kA9BSeV15rS1ry5kn'"
 			class="hover:bg-green hover:text-blue hover:border-blue transition-colors border rounded-lg px-20 py-10 font-bold m-10"
 			:class={"selectedAmount === 'other' ? 'bg-green text-blue border-blue': 'text-black bg-white border-black'"}
 			>Choose Ammount</button
 		>
 	</div>
 	<a
-		href="#"
+		:href="link"
+		target="_blank"
 		class="inline-flex items-center text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
 	>
 		Checkout
