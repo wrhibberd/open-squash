@@ -33,14 +33,45 @@ import CoachCard from "./CoachCard.astro";
 			<div class="flex -space-x-2 text-label">
 				<button
 					@click="prev()"
-					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
-					>Prev</button
+					class="flex items-center bg-white focus:ring-0 focus:ring-offset-0 focus:border-black focus:bg-black focus:text-white hover:bg-black hover:text-white transition-colors border-black border rounded-l px-10 py-5"
 				>
+					<svg
+						width="12"
+						height="11"
+						viewBox="0 0 12 11"
+						fill="none"
+						class="mr-10"
+						stroke="currentColor"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M11 5.43481L1 5.43481M1 5.43481L5.5 9.93481M1 5.43481L5.5 0.934814"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+					 Prev
+				</button>
 				<button
 					@click="next()"
-					class="bg-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
-					>Next</button
-				>
+					class="flex items-center bg-white focus:ring-0 focus:ring-offset-0 focus:border-black focus:bg-black focus:text-white hover:bg-black hover:text-white transition-colors border-black border rounded-r px-10 py-5"
+					>Next
+					<svg
+						width="12"
+						height="11"
+						viewBox="0 0 12 11"
+						fill="none"
+						class="ml-10"
+						stroke="currentColor"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M1 5.43481H11M11 5.43481L6.5 0.934814M11 5.43481L6.5 9.93481"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</button>
 			</div>
 		</div>
 	</div>
