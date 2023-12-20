@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Masthead from "../components/Masthead.astro";
 import Locations from "../components/Locations.astro";
 import Coaches from "../components/Coaches.astro";
+import CallToAction from "../components/CallToAction.astro";
 
 import mastheadImage from "../assets/images/court-movement.jpg";
 import about1 from "../assets/images/about/1A6A4214.jpg";
@@ -11,6 +12,20 @@ import about2 from "../assets/images/about/1A6A8829.jpg";
 import about3 from "../assets/images/about/1A6A8913.jpg";
 import about4 from "../assets/images/about/1A6A9001.jpg";
 import about5 from "../assets/images/about/1A6A9155.jpg";
+
+import bookACourtC2AImage from "../assets/images/1A6A4359.jpg";
+const bookACourtC2A = {
+	file: bookACourtC2AImage,
+	alt: "Drill session at Open Squash",
+	position: "object-top",
+};
+
+import bryantPark from "../assets/images/bryant-park.jpg";
+const bryantParkImage = {
+	file: bryantPark,
+	alt: "Image of players at the Open Squash Bryant Park location",
+	position: "object-center",
+};
 
 const image = {
 	file: mastheadImage,
@@ -111,5 +126,48 @@ const seoDescription =
 		</div>
 	</section>
 	<Locations />
+	<CallToAction
+		text="Book a court, lesson, or clinic."
+		theme="red"
+		image={bookACourtC2A}
+		position="right"
+		textSize="large"
+		links={[
+			{
+				text: "Bryant Park",
+				url: "https://bryantpark.opensquash.org/programs?facility_id=645&category=&search=&view=grid",
+				style: "hover:bg-red hover:text-white border-red",
+				external: true,
+			},
+			{
+				text: "FiFi",
+				url: "https://fidi.opensquash.org/programs?facility_id=646&category=&search=&view=grid",
+				style: "bg-red text-white hover:bg-white hover:text-red border-red",
+				external: true,
+			},
+		]}
+	/>
 	<Coaches />
+
+	<CallToAction
+		text="Join the Community. Meet new Friends. Get Fit. Have Fun."
+		theme="blue"
+		image={bryantParkImage}
+		position="left"
+		textSize="small"
+		links={[
+			{
+				text: "Join Bryant Park",
+				url: "https://bryantpark.opensquash.org/f/opensquashbryantpark/memberships",
+				style: "hover:bg-blue hover:text-blue-light border-blue",
+				external: true,
+			},
+			{
+				text: "Join FiDi ",
+				url: "https://fidi.opensquash.org/f/opensquashfidi/memberships",
+				style: "bg-blue text-blue-light hover:bg-blue-light hover:text-blue border-blue",
+				external: true,
+			},
+		]}
+	/>
 </Layout>
