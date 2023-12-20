@@ -7,11 +7,6 @@ import Coaches from "../components/Coaches.astro";
 import CallToAction from "../components/CallToAction.astro";
 
 import mastheadImage from "../assets/images/court-movement.jpg";
-import about1 from "../assets/images/about/1A6A4214.jpg";
-import about2 from "../assets/images/about/1A6A8829.jpg";
-import about3 from "../assets/images/about/1A6A8913.jpg";
-import about4 from "../assets/images/about/1A6A9001.jpg";
-import about5 from "../assets/images/about/1A6A9155.jpg";
 
 import bookACourtC2AImage from "../assets/images/1A6A4359.jpg";
 const bookACourtC2A = {
@@ -46,16 +41,6 @@ const seoDescription =
 		{image}
 	/>
 	<section class="px-20 space-y-40 py-80">
-		<figure class="w-full lg:w-1/2 mx-auto">
-			<Picture
-				src={about4}
-				alt="A man and a woman performing a drill on a squash court at Open Squash"
-				widths={[400, 800, 1200, 1600]}
-				formats={["webp", "avif"]}
-				fallbackFormat="jpg"
-				class="w-full"
-			/>
-		</figure>
 		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
 			<p>
 				It’s no secret. We love squash. We love everything about it: the
@@ -67,62 +52,12 @@ const seoDescription =
 				fast-paced, oh-my-gosh-I-forgot-I-was-even-exercising kind of
 				way, And most of all, we love how squash makes us aim higher.
 			</p>
-		</div>
-		<div
-			class="flex flex-col sm:flex-row space-y-20 sm:space-y-0 sm:space-x-20 w-full lg:w-2/3 mx-auto"
-		>
-			<figure class="flex-1">
-				<Picture
-					src={about3}
-					alt="Players stretching and using foam rollers on a squash court at Open Squash"
-					widths={[400, 800, 1200, 1600]}
-					formats={["webp", "avif"]}
-					fallbackFormat="jpg"
-					class="w-full"
-				/>
-			</figure>
-			<figure class="flex-1">
-				<Picture
-					src={about2}
-					alt="A group of women learning about squash at Open Squash"
-					widths={[400, 800, 1200, 1600]}
-					formats={["webp", "avif"]}
-					fallbackFormat="jpg"
-					class="w-full"
-				/>
-			</figure>
-		</div>
-		<div class="w-full lg:w-1/2 mx-auto max-w-[65ch]">
 			<p>
 				We opened in 2020 with the simple mission of bringing this
 				amazing sport to more people–at every level and from all walks
 				of life. Young people. Old people. Women. Men. Nonbinary people.
 				People who can afford to pay and people who can’t.
 			</p>
-		</div>
-		<div
-			class="flex flex-col sm:flex-row space-y-20 sm:space-y-0 sm:space-x-20 w-full lg:w-2/3 mx-auto"
-		>
-			<figure class="flex-1">
-				<Picture
-					src={about1}
-					alt="A man and a woman performing a drill on a squash court at Open Squash"
-					widths={[400, 800, 1200, 1600]}
-					formats={["webp", "avif"]}
-					fallbackFormat="jpg"
-					class="w-full"
-				/>
-			</figure>
-			<figure class="flex-1">
-				<Picture
-					src={about5}
-					alt="Post match pizza at Open Squash"
-					widths={[400, 800, 1200, 1600]}
-					formats={["webp", "avif"]}
-					fallbackFormat="jpg"
-					class="w-full"
-				/>
-			</figure>
 		</div>
 	</section>
 	<Locations />
