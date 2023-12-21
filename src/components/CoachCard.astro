@@ -18,10 +18,11 @@ const { coach } = Astro.props;
 					formats={["webp", "avif"]}
 					fallbackFormat="jpg"
 					pictureAttributes={{
-						class: "max-w-full h-[calc(100vw-68px)] sm:h-[calc(calc(100vw-108px)/2)] lg:h-[calc(calc(100vw-140px)/3)] w-[calc(100vw-68px)] sm:w-[calc(calc(100vw-108px)/2)] lg:w-[calc(calc(100vw-140px)/3)]",
+						class: "w-full aspect-square",
 					}}
-					class="object-cover w-full h-full object-top"
+					class="object-cover aspect-square w-full h-full object-top"
 				/>
+				// max-w-full h-[calc(100vw-68px)] sm:h-[calc(calc(100vw-108px)/2)] lg:h-[calc(calc(100vw-140px)/3)] w-[calc(100vw-68px)] sm:w-[calc(calc(100vw-108px)/2)] lg:w-[calc(calc(100vw-140px)/3)]
 			)
 		}
 		<div
