@@ -56,6 +56,7 @@ export default {
 			80: "5rem",
 			100: "6.25rem",
 			124: "7.75rem",
+			350: "21.875rem",
 			px: "1px",
 			em: "1em",
 			rem: "1rem",
