@@ -12,17 +12,17 @@ Running on Astro using Tailwind and Alpine.js
 
 ### Templating
 
--   [ ] Global
-    -   [ ] Menu
-    -   [ ] Footer
--   [ ] Components
-    -   [ ] Masthead
-    -   [ ] Map / locations
-    -   [ ] Team
-    -   [ ] Contact form
-    -   [ ] Call to action
-    -   [ ] About Article
-    -   [ ] Donate
+-   [x] Global
+    -   [x] Menu
+    -   [x] Footer
+-   [x] Components
+    -   [x] Masthead
+    -   [x] Map / locations
+    -   [x] Team
+    -   [x] Contact form
+    -   [x] Call to action
+    -   [x] About Article
+    -   [x] Donate
 
 ### Server Setup
 
@@ -30,11 +30,11 @@ Running on Astro using Tailwind and Alpine.js
 
 ### Launch and SEO
 
--   [ ] Add domain to netlify
--   [ ] Add domain to config
+-   [x] Add domain to netlify
+-   [x] Add domain to config
 -   [ ] Route DNS
 -   [ ] Test web vitals
--   [ ] OG Meta
+-   [x] OG Meta
 -   [ ] OG images
 -   [ ] Sitemap
 -   [ ] Add cabin analyics
