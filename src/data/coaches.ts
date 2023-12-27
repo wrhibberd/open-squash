@@ -1,4 +1,4 @@
-import amrImage from '../assets/images/coaches/amr.jpeg';
+import amrImage from '../assets/images/coaches/amr.png';
 import peterImage from '../assets/images/coaches/peter.jpeg';
 import ashgarImage from '../assets/images/coaches/asghar.jpeg';
 import hannahImage from '../assets/images/coaches/hannah.jpeg';
