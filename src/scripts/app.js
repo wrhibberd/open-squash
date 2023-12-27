@@ -4,6 +4,7 @@ import focus from "@alpinejs/focus";
 import validate from "@colinaut/alpinejs-plugin-simple-validate";
 
 /* Project helpers */
+import "./utils/downloadLink.js";
 import "./utils/favicon.js";
 import { vhFix } from "./utils/vhFix";
 

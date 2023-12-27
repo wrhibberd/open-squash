@@ -26,7 +26,8 @@ const menuItems = [
 			{
 				name: "Download App",
 				external: true,
-				href: "/",
+				downloadApp: true,
+				href: "https://apps.apple.com/us/app/open-squash/id6474446506",
 			},
 		],
 	},
@@ -154,6 +155,9 @@ const menuItems = [
 												subItem.external
 													? "_blank"
 													: "_self"
+											}
+											data-download={
+												subItem.downloadApp && "app"
 											}
 											class="hover:text-white transition-colors"
 										>
