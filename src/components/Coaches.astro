@@ -4,12 +4,7 @@ import coaches from "../data/coaches";
 import CoachCard from "./CoachCard.astro";
 ---
 
-<section
-	class="isolate border-t -mt-2"
-	x-ignore
-	ax-load
-	x-data="coachesCarousel()"
->
+<section class="isolate border-t -mt-2" x-data="coachesCarousel()">
 	<Heading headingText="Our Top Tier Team" />
 	<div class="grid grid-cols-1 lg:grid-cols-3 border-t">
 		<div class="col-span-2 border-b lg:border-b-0 lg:border-r py-20">

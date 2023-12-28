@@ -1,4 +1,3 @@
-import AsyncAlpine from "async-alpine";
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
 import validate from "@colinaut/alpinejs-plugin-simple-validate";
@@ -9,8 +8,10 @@ import "./utils/favicon.js";
 import { vhFix } from "./utils/vhFix";
 
 /* Project components */
-import header from "./components/header.js";
+import coachesCarousel from "./components/coachesCarousel.js";
 import form from "./components/form.js";
+import header from "./components/header.js";
+import locationsMap from "./components/locationsMap.js";
 
 /* Place alpine on the window to get Alpine dev tools working */
 window.Alpine = Alpine;
@@ -19,18 +20,13 @@ window.Alpine = Alpine;
 Alpine.plugin(focus);
 Alpine.plugin(validate);
 
-/* Alpine stores */
-
 /* Alpine data */
-Alpine.data("header", header);
+Alpine.data("coachesCarousel", coachesCarousel);
 Alpine.data("form", form);
-// Alpine.data("tailImage", tailImage);
+Alpine.data("header", header);
+Alpine.data("locationsMap", locationsMap);
 
 /* Start Alpine */
-AsyncAlpine.init(Alpine)
-	.data("locationsMap", () => import("./components/locationsMap.js"))
-	.data("coachesCarousel", () => import("./components/coachesCarousel.js"))
-	.start();
 Alpine.start();
 init();
 
