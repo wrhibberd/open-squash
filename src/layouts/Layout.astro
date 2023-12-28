@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import "../styles/app.pcss";
 
 import Header from "../components/Header.astro";
@@ -63,6 +65,7 @@ const {
 
 			gtag("config", "GTM-PQL3DML");
 		</script>
+		<ViewTransitions fallback="none" />
 	</head>
 	<body class="flex flex-col min-h-screen bg-white pb-10 sm:pb-20">
 		<Header />
@@ -72,8 +75,7 @@ const {
 			<slot />
 		</main>
 		<Footer />
-	</body>
-	<!-- TODO add cabin 
+	</body><!-- TODO add cabin 
         <script
 		async
 		defer
