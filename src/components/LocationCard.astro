@@ -22,15 +22,18 @@ const { theme, id, title, address, facalities, link, image } = Astro.props;
 		fallbackFormat="jpg"
 		class="w-full h-[200px] object-cover rounded-t"
 	/>
-	<div class="p-20 border-t">
+	<a
+		href={link}
+		target="_blank"
+		class="p-20 border-t group block focus:outline-none focus:ring-0 focus:ring-offset-0"
+	>
 		<h3 class="text-heading-sm pb-10">{title}</h3>
 		<p class="text-body-md pb-5">{address}</p>
 		<p class="text-label pb-20">{facalities}</p>
-		<a
-			href={link}
-			target="_blank"
-			class="inline-block text-black hover:text-yellow hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold"
-			>Read More</a
+		<div
+			class="inline-block text-black group-hover:text-yellow group-hover:bg-black transition-colors bg-yellow border-black border rounded-lg px-20 py-10 font-bold group-focus:ring-2 group-focus:ring-blue group-focus:ring-offset-2 group-focus:ring-offset-white"
 		>
-	</div>
+			Read More
+		</div>
+	</a>
 </div>
