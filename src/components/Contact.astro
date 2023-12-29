@@ -28,25 +28,40 @@ import SocialLinks from "./SocialLinks.astro";
 		</div>
 		<div x-show="!success">
 			<form
+				data-netlify="true"
 				name="contact"
 				method="POST"
-				class="form"
+				action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0b000000CDCM"
 				x-validate
-				data-netlify="true"
+				class="form"
 			>
 				<input
 					type="hidden"
 					name="subject"
-					:value="`Question from ${name}`"
+					:value="`Question from ${firstName} ${secondName}`"
 				/>
+				<input type="hidden" name="oid" value="00D0b000000CDCM" />
 				<fieldset>
-					<label for="name">Name</label>
+					<label for="first_name">First Name</label>
 					<input
 						type="text"
-						name="name"
-						x-model="name"
-						placeholder="Jahangir Khan"
-						data-error-msg="a name is required"
+						name="first_name"
+						maxlength="40"
+						x-model="firstName"
+						placeholder="Jahangir"
+						data-error-msg="a first name is required"
+						x-validate.required
+					/>
+				</fieldset>
+				<fieldset>
+					<label for="last_name">Second Name</label>
+					<input
+						type="text"
+						name="last_name"
+						maxlength="80"
+						x-model="secondName"
+						placeholder="Khan"
+						data-error-msg="a second name is required"
 						x-validate.required
 					/>
 				</fieldset>
@@ -55,6 +70,7 @@ import SocialLinks from "./SocialLinks.astro";
 					<input
 						type="email"
 						name="email"
+						maxlength="80"
 						placeholder="goat@squashmaster.com"
 						data-error-msg="an email is required"
 						x-validate.required
@@ -62,17 +78,18 @@ import SocialLinks from "./SocialLinks.astro";
 					/>
 				</fieldset>
 				<fieldset>
-					<label for="telephone">Phone Number</label>
+					<label for="phone">Phone Number</label>
 					<input
 						type="tel"
-						name="telephone"
+						name="phone"
+						maxlength="40"
 						placeholder="576 731-6777"
 					/>
 				</fieldset>
 				<fieldset>
-					<label for="emailSubject">Subject</label>
+					<label for="lead_source">Subject</label>
 					<select
-						name="emailSubject"
+						name="lead_source"
 						x-validate.required
 						data-error-msg="you must pick a subject"
 					>
@@ -101,9 +118,9 @@ import SocialLinks from "./SocialLinks.astro";
 					</select>
 				</fieldset>
 				<fieldset>
-					<label for="message">Message</label>
+					<label for="description">Message</label>
 					<textarea
-						name="message"
+						name="description"
 						rows="4"
 						placeholder="Can you teach this old dog some new tricks?"
 						x-validate.required

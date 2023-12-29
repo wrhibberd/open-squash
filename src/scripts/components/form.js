@@ -1,13 +1,14 @@
 export default function form() {
 	return {
 		success: false,
-		name: "",
+		firstName: "",
+		secondName: "",
 		submitForm() {
 			const form = this.$root.querySelector("form");
 			if (this.$validate.isComplete(form)) {
 				const formData = new FormData(form);
 				// console.log(formData);
-				fetch("/", {
+				fetch(form.action, {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/x-www-form-urlencoded",
