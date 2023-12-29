@@ -15,19 +15,19 @@ export default function form() {
 					},
 					body: new URLSearchParams(formData).toString(),
 				})
-					.then(() =>
-						fetch(
-							"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0b000000CDCM",
-							{
-								method: "POST",
-								headers: {
-									"Content-Type":
-										"application/x-www-form-urlencoded",
-								},
-								body: new URLSearchParams(formData).toString(),
-							}
-						)
-					)
+					// .then(() =>
+					// 	fetch(
+					// 		"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0b000000CDCM",
+					// 		{
+					// 			method: "POST",
+					// 			headers: {
+					// 				"Content-Type":
+					// 					"application/x-www-form-urlencoded",
+					// 			},
+					// 			body: new URLSearchParams(formData).toString(),
+					// 		}
+					// 	)
+					// )
 					// .then(() => console.log("Form successfully submitted"))
 					.then(() => this.formSuccess())
 					.catch((error) => alert(error));
