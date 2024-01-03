@@ -128,9 +128,9 @@ const menuItems = [
 		</button>
 	</div>
 	<template x-teleport="body">
+		<!-- x-trap.noscroll="menuOpen" -->
 		<nav
 			x-show="menuOpen"
-			x-trap.noscroll="menuOpen"
 			x-transition.opacity
 			@keydown.escape.window="menuOpen = false"
 			id="headerNav"
