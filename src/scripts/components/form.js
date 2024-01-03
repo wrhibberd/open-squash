@@ -7,17 +7,14 @@ export default function form() {
 			const form = this.$root.querySelector("form");
 			if (this.$validate.isComplete(form)) {
 				const formData = new FormData(form);
-				const netlifyData = new URLSearchParams(formData);
-				const netlifyBody = netlifyData.toString();
-				const salesfoceData = Object.fromEntries(formData);
-				const salesforceBody = JSON.stringify(salesfoceData);
+				const data = new URLSearchParams(formData);
 
 				const postToNetlify = fetch("/", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/x-www-form-urlencoded",
 					},
-					body: netlifyBody,
+					body: data.toString(),
 				});
 
 				const postToSalesforce = fetch(
@@ -25,9 +22,9 @@ export default function form() {
 					{
 						method: "POST",
 						headers: {
-							"Content-Type": "application/json",
+							"Content-Type": "application/x-www-form-urlencoded",
 						},
-						body: salesforceBody,
+						body: data.toString(),
 					}
 				);
 
