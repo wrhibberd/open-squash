@@ -8,33 +8,28 @@ export default function form() {
 			if (this.$validate.isComplete(form)) {
 				const formData = new FormData(form);
 				const data = new URLSearchParams(formData);
-
-				// const postToNetlify = fetch("/", {
-				// 	method: "POST",
-				// 	headers: {
-				// 		"Content-Type": "application/x-www-form-urlencoded",
-				// 	},
-				// 	body: data.toString(),
-				// });
-
-				// const postToSalesforce = fetch(
-				// 	"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0b000000CDCM",
-				// 	{
-				// 		method: "POST",
-				// 		headers: {
-				// 			"Content-Type": "application/x-www-form-urlencoded",
-				// 		},
-				// 		body: data.toString(),
-				// 	}
-				// );
+				const body = data.toString();
 
 				fetch("/", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/x-www-form-urlencoded",
 					},
-					body: data.toString(),
+					body: body,
 				})
+					.then(
+						fetch(
+							"https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D0b000000CDCM",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type":
+										"application/x-www-form-urlencoded",
+								},
+								body: body,
+							}
+						)
+					)
 					.then(() => this.formSuccess())
 					.catch((error) => alert(error));
 			}

@@ -128,10 +128,10 @@ const menuItems = [
 		</button>
 	</div>
 	<template x-teleport="body">
-		<!-- x-trap.noscroll="menuOpen" -->
 		<nav
 			x-show="menuOpen"
 			x-transition.opacity
+			x-trap.noscroll="menuOpen"
 			@keydown.escape.window="menuOpen = false"
 			id="headerNav"
 			class="fixed top-[4rem] sm:top-[6.5rem] lg:top-124 inset-x-0 bottom-0 bg-white pt-0 px-10 pb-10 sm:px-20 sm:pb-20 text-blue"
@@ -151,6 +151,7 @@ const menuItems = [
 									{item.items?.map((subItem) => (
 										<a
 											href={subItem.href}
+											@click="menuOpen = false"
 											target={
 												subItem.external
 													? "_blank"
@@ -170,6 +171,7 @@ const menuItems = [
 							<a
 								href={item.href}
 								target={item.external ? "_blank" : "_self"}
+								@click="menuOpen = false"
 								class="text-heading-xs lg:text-heading-sm text-center h-full flex items-center justify-center p-10 sm:p-20 hover:text-white transition-colors"
 							>
 								{item.name}
