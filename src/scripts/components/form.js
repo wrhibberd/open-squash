@@ -23,6 +23,7 @@ export default function form() {
 						method: "POST",
 						headers: {
 							"Content-Type": "application/x-www-form-urlencoded",
+							"Access-Control-Allow-Origin": "*",
 							"no-cors": "true",
 						},
 						body: data.toString(),
