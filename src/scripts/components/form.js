@@ -29,7 +29,7 @@ export default function form() {
 				);
 
 				postToNetlify
-					.then(postToSalesforce)
+					// .then(postToSalesforce)
 					.then(() => this.formSuccess())
 					.catch((error) => alert(error));
 			}
