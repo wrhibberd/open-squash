@@ -87,6 +87,22 @@ import SocialLinks from "./SocialLinks.astro";
 					/>
 				</fieldset>
 				<fieldset>
+					<label for="00N5a00000DVUMH">Location</label>
+					<select
+						id="00N5a00000DVUMH"
+						name="00N5a00000DVUMH"
+						x-validate.required
+						data-error-msg="you must pick a location"
+					>
+						<option value="" disabled selected
+							>Choose Location</option
+						>
+						<option value="Bryant Park">Bryant Park</option>
+						<option value="FiDi">FiDi</option>
+						<option value="Both">Both</option>
+					</select>
+				</fieldset>
+				<fieldset>
 					<label for="lead_source">Subject</label>
 					<select
 						name="lead_source"
