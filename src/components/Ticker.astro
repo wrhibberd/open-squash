@@ -1,0 +1,38 @@
+<div
+	x-data
+	x-cloak
+	x-show="$store.global.showTicker"
+	class="mx-10 md:mx-20 h-40 bg-red-dark border-red text-red border border-t-0 sticky top-[4rem] sm:top-[6.5rem] lg:top-124 z-10 text-heading-xs overflow-hidden whitespace-nowrap leading-[40px]"
+>
+	<a
+		href="https://apps.apple.com/us/app/open-squash/id6474446506"
+		target="_blank"
+		data-download="app"
+		class="ticker"
+	>
+		<span class="item-collection-1">
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+		</span>
+		<span>
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+			<span>• Click here to download the open squash app</span>
+		</span>
+	</a>
+	<button
+		class="absolute right-0 -inset-y-2 w-40 h-40 border-l border-red transition-colors hover:bg-red bg-red-dark flex items-end justify-center hover:text-red-dark focus:ring-0 focus:ring-offset-0"
+		@click="$store.global.showTicker = false"
+		aria-label="close ticker"
+	>
+		<div class="h-20 w-20 relative">
+			<span class="absolute inset-0 w-full h-2 bg-current rotate-45"
+			></span>
+			<span class="absolute inset-0 w-full h-2 bg-current -rotate-45"
+			></span>
+		</div>
+	</button>
+</div>

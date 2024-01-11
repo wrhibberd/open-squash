@@ -1,5 +1,6 @@
 import Alpine from "alpinejs";
 import focus from "@alpinejs/focus";
+import persist from "@alpinejs/persist";
 import validate from "@colinaut/alpinejs-plugin-simple-validate";
 
 /* Project helpers */
@@ -18,6 +19,7 @@ window.Alpine = Alpine;
 
 /* Alpine plugins */
 Alpine.plugin(focus);
+Alpine.plugin(persist);
 Alpine.plugin(validate);
 
 /* Alpine data */
@@ -25,6 +27,11 @@ Alpine.data("coachesCarousel", coachesCarousel);
 Alpine.data("form", form);
 Alpine.data("header", header);
 Alpine.data("locationsMap", locationsMap);
+
+/* Alpine global store */
+Alpine.store("global", {
+	showTicker: Alpine.$persist(true).using(localStorage),
+});
 
 /* Start Alpine */
 Alpine.start();

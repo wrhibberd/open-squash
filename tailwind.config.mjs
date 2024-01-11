@@ -16,7 +16,10 @@ export default {
 				DEFAULT: "#002D78",
 				light: "#00AAFF",
 			},
-			red: "#ED1856",
+			red: {
+				DEFAULT: "#ED1856",
+				dark: "#5D0023",
+			},
 			yellow: "#FCDA01",
 		},
 		fontFamily: {
@@ -56,6 +59,7 @@ export default {
 			80: "5rem",
 			100: "6.25rem",
 			124: "7.75rem",
+			160: "10rem",
 			350: "21.875rem",
 			px: "1px",
 			em: "1em",

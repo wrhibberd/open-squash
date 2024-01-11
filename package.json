@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@alpinejs/focus": "^3.13.3",
+		"@alpinejs/persist": "^3.13.3",
 		"@astrojs/check": "^0.3.2",
 		"@astrojs/sitemap": "^3.0.4",
 		"@astrojs/tailwind": "^5.0.3",

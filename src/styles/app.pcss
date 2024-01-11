@@ -8,6 +8,36 @@
 	@apply text-red text-label;
 }
 
+.ticker {
+	display: inline-block;
+	animation: marquee 60s linear infinite;
+}
+.item-collection-1 {
+	position: relative;
+	animation: swap 60s linear infinite;
+}
+
+/* Transition */
+@keyframes marquee {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes swap {
+	0%,
+	50% {
+		left: 0%;
+	}
+	50.01%,
+	100% {
+		left: 100%;
+	}
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

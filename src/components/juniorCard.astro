@@ -1,0 +1,117 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image, Picture, imageConfig } from "astro:assets";
+import JuniorIcon from "../assets/svgs/JuniorIcon.astro";
+
+interface Props {
+	heading: string;
+	subheading: string;
+	body: string;
+	theme: "green" | "blue" | "red";
+	image?: {
+		file: ImageMetadata;
+		alt: string;
+	};
+	bpLink?: string;
+	fidiLink?: string;
+}
+
+const cardStyles = {
+	green: "text-forest-green bg-green ",
+	blue: "text-blue bg-blue-light ",
+	red: "text-red-dark bg-red ",
+};
+
+const frameColours = {
+	green: "fill-green",
+	blue: "fill-blue-light",
+	red: "fill-red",
+};
+
+const gradentColours = {
+	green: "from-green-forest to-green",
+	blue: "from-blue to-blue-light",
+	red: "from-red-dark to-red",
+};
+
+const { heading, subheading, body, theme, image, bpLink, fidiLink } =
+	Astro.props as Props;
+---
+
+<div
+	class:list={[
+		"rounded border border-current flex flex-col",
+		`${cardStyles[theme]}`,
+	]}
+>
+	<div class="h-160 shrink-0 relative overflow-hidden">
+		<Picture
+			src={image.file}
+			alt={image.alt}
+			widths={[400, 800, 1200, 1600]}
+			formats={["webp", "avif"]}
+			fallbackFormat="jpg"
+			pictureAttributes={{
+				class: "absolute inset-0 w-full",
+			}}
+			class="w-full h-full object-cover mix-blend-multiply grayscale contrast-150"
+		/>
+		<div
+			class:list={[
+				"absolute inset-0 bg-gradient-to-tr opacity-75",
+				`${gradentColours[theme]}`,
+			]}
+		>
+		</div>
+		<JuniorIcon
+			classes="h-60 absolute top-20 left-20"
+			ballColour="fill-white"
+			frameColour={frameColours[theme]}
+		/>
+	</div>
+	<div class="p-20 border-t h-full flex flex-col justify-between">
+		<div>
+			<h3 class="text-heading-xs sm:text-heading-sm">{heading}</h3>
+			<p class="text-body-md pt-10">{subheading}</p>
+			<div class="rich-text pt-10" set:html={body} />
+		</div>
+		{
+			fidiLink || bpLink ? (
+				<div class="flex flex-wrap -m-10 pt-20">
+					{bpLink && (
+						<a
+							href={bpLink}
+							class:list={[
+								"inline-block transition-colors border rounded-lg px-20 py-10 font-bold m-10",
+								theme === "green" &&
+									"bg-green-forest text-green border-green-forest hover:text-green-forest hover:bg-green focus:ring-offset-green focus:ring-green-forest",
+								theme === "blue" &&
+									"bg-blue text-blue-light border-blue hover:text-blue hover:bg-blue-light focus:ring-offset-blue-light focus:ring-blue",
+								theme === "red" &&
+									"bg-red-dark text-red border-red-dark hover:text-red-dark hover:bg-red focus:ring-offset-red focus:ring-red-dark",
+							]}
+						>
+							Bryant Park
+						</a>
+					)}
+					{fidiLink && (
+						<a
+							href={fidiLink}
+							class:list={[
+								"inline-block transition-colors border rounded-lg px-20 py-10 font-bold m-10",
+								theme === "green" &&
+									"bg-green text-green-forest border-green-forest hover:text-green hover:bg-green-forest focus:ring-offset-green focus:ring-green-forest",
+								theme === "blue" &&
+									"bg-blue-light text-blue border-blue hover:text-blue-light hover:bg-blue focus:ring-offset-blue-light focus:ring-blue",
+								theme === "red" &&
+									"bg-red text-red-dark border-red-dark hover:text-red hover:bg-red-dark focus:ring-offset-red focus:ring-red-dark",
+							]}
+						>
+							FiDi
+						</a>
+					)}
+				</div>
+			) : null
+		}
+	</div>
+</div>

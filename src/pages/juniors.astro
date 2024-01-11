@@ -1,12 +1,25 @@
 ---
-// Astro imports
-import { Picture } from "astro:assets";
-
 // Components
 import Layout from "../layouts/Layout.astro";
 import Masthead from "../components/Masthead.astro";
+import JuniorCard from "../components/juniorCard.astro";
 
 // Images
+import greenTeamFile from "../assets/images/juniors/stretch.jpg";
+const greenTeamImage = {
+	file: greenTeamFile,
+	alt: "junior squash players stretching at the beginning of the green team junior academy",
+};
+import blueTeamFile from "../assets/images/juniors/celebrate.png";
+const blueTeamImage = {
+	file: blueTeamFile,
+	alt: "junior squash players celebrating at the end of the blue team junior academy",
+};
+import redTeamFile from "../assets/images/juniors/drill.png";
+const redTeamImage = {
+	file: redTeamFile,
+	alt: "junior squash players performing a drill at the red team junior academy",
+};
 import campImage from "../assets/images/1A6A0152.jpg";
 const image = {
 	file: campImage,
@@ -51,6 +64,37 @@ const seoDescription =
 				</p>
 			</div>
 		</div>
+
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+			<JuniorCard
+				image={greenTeamImage}
+				theme="green"
+				heading="Green Team"
+				subheading="For beginner through to Bronze level players"
+				body="<p>Learning the basics of squash: serving, returning, basic shots and tactics with the goal of playing real points and both understanding and enjoying the game of squash.</p><p>Twice a week = $1,080 per term</br>Once a week = $540 per term</p>"
+				bpLink="https://bryantpark.opensquash.org/programs?facility_id=645&category=Junior+Academy+-+Green+Team&search=&view=grid"
+				fidiLink="https://fidi.opensquash.org/programs?facility_id=646&category=Junior+Academy+-+Green&search=&view=grid"
+			/>
+			<JuniorCard
+				image={blueTeamImage}
+				theme="blue"
+				heading="Blue Team"
+				subheading="For intermediate players"
+				body="<p>Building on the foundation principles of squash to refine technique and hit shots with tactical purpose with the goal of playing real matches.</p><p>Twice a week = $2,640 per term</br>Once a week = $1,320 per term</p>"
+				bpLink="https://bryantpark.opensquash.org/programs?facility_id=645&category=Junior+Academy+-+Blue+Team&search=&view=grid"
+				fidiLink="https://fidi.opensquash.org/programs?facility_id=646&category=Junior+Academy+-+Blue&search=&view=grid"
+			/>
+			<JuniorCard
+				image={redTeamImage}
+				theme="red"
+				heading="Red Team"
+				subheading="For experienced and highly competitive Juniors"
+				body="<p>Master stroke and movement technique, advanced tactical understanding to be physically and mentally prepared for tournament play.</p><p>Twice a week = $2,640 per term</br>Once a week = $1,320 per term</p>"
+				bpLink="https://bryantpark.opensquash.org/programs?facility_id=645&category=Junior+Academy+-+Red+Team&search=&view=grid"
+				fidiLink="https://fidi.opensquash.org/programs?facility_id=646&category=Junior+Academy+-+Red&search=&view=grid"
+			/>
+		</div>
+
 		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
 			<div class="rich-text">
 				<p>
