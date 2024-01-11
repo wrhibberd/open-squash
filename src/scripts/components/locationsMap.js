@@ -30,7 +30,7 @@ export default function locationsMap() {
 		addMarkers() {
 			const markers = this.$el.querySelectorAll(".location");
 			const addMarkers = new Promise((resolve) => {
-				markers.forEach((marker, index) => {
+				markers.forEach((marker) => {
 					const coordinates = marker.dataset.latlng.split(",");
 					new mapboxgl.Marker(marker, {
 						anchor: "bottom",
