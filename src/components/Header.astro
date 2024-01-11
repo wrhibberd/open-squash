@@ -11,28 +11,6 @@ const menuItems = [
 	},
 	{
 		type: "group",
-		heading: "Members",
-		items: [
-			{
-				name: "Bryant Park Login",
-				external: true,
-				href: "https://bryantpark.opensquash.org/users/sign_in",
-			},
-			{
-				name: "FiDi Login",
-				external: true,
-				href: "https://fidi.opensquash.org/users/sign_in",
-			},
-			{
-				name: "Download App",
-				external: true,
-				downloadApp: true,
-				href: "https://apps.apple.com/us/app/open-squash/id6474446506",
-			},
-		],
-	},
-	{
-		type: "group",
 		heading: "Bryant Park",
 		items: [
 			{
@@ -44,6 +22,11 @@ const menuItems = [
 				name: "Become a Member",
 				external: true,
 				href: "https://bryantpark.opensquash.org/f/opensquashbryantpark/memberships",
+			},
+			{
+				name: "Login",
+				external: true,
+				href: "https://bryantpark.opensquash.org/users/sign_in",
 			},
 		],
 	},
@@ -61,13 +44,28 @@ const menuItems = [
 				external: true,
 				href: "https://fidi.opensquash.org/f/opensquashfidi/memberships",
 			},
+			{
+				name: "Login",
+				external: true,
+				href: "https://fidi.opensquash.org/users/sign_in",
+			},
 		],
 	},
 	{
-		type: "single",
-		external: false,
-		name: "Squash Summer Camp",
-		href: "/summer-programs",
+		type: "group",
+		heading: "Juniors",
+		items: [
+			{
+				name: "Junior Academy",
+				external: false,
+				href: "/junior-academy",
+			},
+			{
+				name: "Squash Summer Camp",
+				external: false,
+				href: "/summer-programs",
+			},
+		],
 	},
 	{
 		type: "single",
