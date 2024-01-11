@@ -5,6 +5,20 @@ export default function form() {
 		secondName: "",
 		init() {
 			this.checkForURLParams();
+			this.$nextTick(() => {
+				this.matchURLParams();
+			}, 300);
+		},
+		matchURLParams() {
+			const form = this.$root.querySelector("form");
+			const urlParams = new URLSearchParams(window.location.search);
+			const inputs = form.querySelectorAll("input");
+			inputs.forEach((input) => {
+				const inputName = input.getAttribute("name");
+				if (urlParams.has(inputName)) {
+					input.value = urlParams.get(inputName);
+				}
+			});
 		},
 		checkForURLParams() {
 			const form = this.$root.querySelector("form");
