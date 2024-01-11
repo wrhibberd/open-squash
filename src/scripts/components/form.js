@@ -13,10 +13,29 @@ export default function form() {
 			const form = this.$root.querySelector("form");
 			const urlParams = new URLSearchParams(window.location.search);
 			const inputs = form.querySelectorAll("input");
+			const selects = form.querySelectorAll("select");
+			const textareas = form.querySelectorAll("textarea");
 			inputs.forEach((input) => {
 				const inputName = input.getAttribute("name");
 				if (urlParams.has(inputName)) {
 					input.value = urlParams.get(inputName);
+				}
+			});
+			selects.forEach((select) => {
+				const selectName = select.getAttribute("name");
+				if (urlParams.has(selectName)) {
+					const options = select.querySelectorAll("option");
+					options.forEach((option) => {
+						if (option.value === urlParams.get(selectName)) {
+							option.setAttribute("selected", "selected");
+						}
+					});
+				}
+			});
+			textareas.forEach((textarea) => {
+				const textareaName = textarea.getAttribute("name");
+				if (urlParams.has(textareaName)) {
+					textarea.value = urlParams.get(textareaName);
 				}
 			});
 		},
