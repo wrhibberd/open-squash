@@ -21,7 +21,17 @@ interface Props {
 		| "lightBlue"
 		| "red"
 		| "yellow";
+	textOverride?:
+		| "black"
+		| "white"
+		| "green"
+		| "forest"
+		| "blue"
+		| "lightBlue"
+		| "red"
+		| "yellow";
 	heading: string;
+	description?: string;
 	image?: {
 		file: ImageMetadata;
 		alt: string;
@@ -61,13 +71,20 @@ const textColourClass = {
 	yellow: "text-yellow",
 };
 
-const { primaryColour, secondaryColour, heading, image } = Astro.props as Props;
+const {
+	primaryColour,
+	secondaryColour,
+	textOverride,
+	heading,
+	description,
+	image,
+} = Astro.props as Props;
 ---
 
 <header
 	class:list={[
-		"relative from-30% bg-gradient-to-r p-20 sm:p-40 flex items-end h-350 sm:h-[calc(100vh-7.875rem)] lg:h-[calc(100vh-9.125rem)] overflow-clip",
-		`${textColourClass[primaryColour]}`,
+		"relative from-30% bg-gradient-to-r p-20 sm:p-40 flex items-end min-h-350 sm:min-h-[calc(100vh-7.875rem)] lg:min-h-[calc(100vh-9.125rem)] overflow-clip",
+		`${textColourClass[textOverride ? textOverride : primaryColour]}`,
 		`${gradFromClass[secondaryColour]}`,
 		`${gradToClass[primaryColour]}`,
 	]}
@@ -87,8 +104,18 @@ const { primaryColour, secondaryColour, heading, image } = Astro.props as Props;
 			/>
 		)
 	}
-	<h1
-		class="text-heading sm:text-heading-lg lg:text-heading-xl relative"
-		set:html={heading}
-	/>
+	<div class="space-y-20 md:space-y-40 w-full lg:w-1/2">
+		<h1
+			class="text-heading sm:text-heading-lg lg:text-heading-xl relative"
+			set:html={heading}
+		/>
+		{
+			description && (
+				<p
+					class="text-body sm:text-body-lg font-bold lg:text-body-xl relative"
+					set:html={description}
+				/>
+			)
+		}
+	</div>
 </header>

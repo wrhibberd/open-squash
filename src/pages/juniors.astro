@@ -1,0 +1,86 @@
+---
+// Astro imports
+import { Picture } from "astro:assets";
+
+// Components
+import Layout from "../layouts/Layout.astro";
+import Masthead from "../components/Masthead.astro";
+
+// Images
+import campImage from "../assets/images/1A6A0152.jpg";
+const image = {
+	file: campImage,
+	alt: "Coaching at an Open Squash summer camp",
+};
+
+const title = "Junior Academy • Open Squash";
+const seoTitle = "Junior Academy";
+const seoDescription =
+	"Learn the basics of squash: serving, returning, basic shots and tactics with the goal of playing real points and both understanding and enjoying the game.";
+---
+
+<Layout {title} {seoTitle}>
+	<Masthead
+		heading="JUNIORS"
+		primaryColour="green"
+		secondaryColour="forest"
+		textOverride="white"
+		{image}
+		description="Our mission is to provide the structure, tools and access for Juniors to take their enjoyment and ambition for squash to their personal potential. Our Juniors are coached to play with determination, purpose, sportsmanship and joy."
+	/>
+	<section class="px-20 space-y-40 py-80">
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
+			<h2 class="text-heading-sm sm:text-heading">
+				The Junior Academy has <span class="text-green"
+					>Three Teams</span
+				>
+			</h2>
+			<div class="rich-text pt-40">
+				<p class="font-bold">
+					*Please identify the Junior team below that fits the needs
+					of your child best.
+				</p>
+				<p>
+					<strong>NOTE:</strong> All our Junior Academy members will have
+					a placement session where they will be assessed by our pros for
+					group assignment. Class placement is at the sole discretion of
+					our teaching professionals.
+				</p>
+				<p class="font-bold">
+					All teams play 3 terms per year: Fall, Winter and Spring.
+				</p>
+			</div>
+		</div>
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
+			<div class="rich-text">
+				<p>
+					Participants are required to commit to the full term.
+					*Please note a Junior Membership of $129 is required for
+					those above the age of 10 and/or taking classes 2x per week.
+				</p>
+				<p class="italic">
+					*Financial aid is available. Please email
+					<a href="mailto:memberservices@opensquash.org"
+						>memberservices@opensquash.org</a
+					> for more information on financial aid.
+				</p>
+				<p>
+					Due to the Junior Academy term starting, pro-rata rates are
+					available.
+				</p>
+			</div>
+		</div>
+		<div class="w-full lg:w-1/2 max-w-[65ch] mx-auto">
+			<h3 class="text-heading-xs sm:text-heading-sm">
+				Junior Academy term dates for 2024 are as follows:
+			</h3>
+			<div class="rich-text pt-20">
+				<ul class="list-inside list-disc font-bold">
+					<li>WINTER 2024: January 2nd - March 23rd, 2024</li>
+					<li>SPRING 2024: March 25th - June 10th, 2024</li>
+					<li>FALL 2024: *Coming Soon!</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</Layout>

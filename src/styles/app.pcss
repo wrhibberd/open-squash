@@ -89,6 +89,9 @@
 @layer components {
 	.rich-text > * {
 		@apply mb-em last:mb-0;
+		a {
+			@apply underline hover:text-green transition-colors;
+		}
 	}
 }
 @layer utilities {
