@@ -7,7 +7,7 @@ import SocialLinks from "./SocialLinks.astro";
 <section class="border-t sm:flex h-full grow">
 	<div
 		class="sm:w-1/2 sm:border-r border-b sm:border-b-0 p-20"
-		x-data="form"
+		x-data="form(true)"
 		x-cloak
 	>
 		<h2 class="text-heading-xs sm:text-heading-sm pb-20">Ask A Question</h2>
@@ -40,33 +40,38 @@ import SocialLinks from "./SocialLinks.astro";
 					:value="`Question from ${firstName} ${secondName}`"
 				/>
 				<input type="hidden" name="oid" value="00D0b000000CDCM" />
-				<fieldset>
-					<label for="first_name">First Name</label>
-					<input
-						type="text"
-						name="first_name"
-						maxlength="40"
-						x-model="firstName"
-						placeholder="Jahangir"
-						data-error-msg="a first name is required"
-						x-validate.required
-					/>
+				<fieldset class="flex space-x-20">
+					<div class="field">
+						<label for="first_name">First Name</label>
+						<input
+							id="first_name"
+							type="text"
+							name="first_name"
+							maxlength="40"
+							x-model="firstName"
+							placeholder="Jahangir"
+							data-error-msg="a first name is required"
+							x-validate.required
+						/>
+					</div>
+					<div class="field">
+						<label for="last_name">Second Name</label>
+						<input
+							id="last_name"
+							type="text"
+							name="last_name"
+							maxlength="80"
+							x-model="secondName"
+							placeholder="Khan"
+							data-error-msg="a second name is required"
+							x-validate.required
+						/>
+					</div>
 				</fieldset>
-				<fieldset>
-					<label for="last_name">Second Name</label>
-					<input
-						type="text"
-						name="last_name"
-						maxlength="80"
-						x-model="secondName"
-						placeholder="Khan"
-						data-error-msg="a second name is required"
-						x-validate.required
-					/>
-				</fieldset>
-				<fieldset>
+				<div class="field">
 					<label for="email">Email</label>
 					<input
+						id="email"
 						type="email"
 						name="email"
 						maxlength="80"
@@ -75,17 +80,18 @@ import SocialLinks from "./SocialLinks.astro";
 						x-validate.required
 						x-validate.email
 					/>
-				</fieldset>
-				<fieldset>
+				</div>
+				<div class="field">
 					<label for="phone">Phone Number</label>
 					<input
+						id="phone"
 						type="tel"
 						name="phone"
 						maxlength="40"
 						placeholder="576 731-6777"
 					/>
-				</fieldset>
-				<fieldset>
+				</div>
+				<div class="field">
 					<label for="00N5a00000DVUMH">Location</label>
 					<select
 						id="00N5a00000DVUMH"
@@ -100,12 +106,14 @@ import SocialLinks from "./SocialLinks.astro";
 						<option value="FiDi">FiDi</option>
 						<option value="Both">Both</option>
 					</select>
-				</fieldset>
-				<fieldset>
+				</div>
+				<div class="field">
 					<label for="lead_source">Subject</label>
 					<select
+						id="lead_source"
 						name="lead_source"
 						x-validate.required
+						x-model="subject"
 						data-error-msg="you must pick a subject"
 					>
 						<option value="" disabled selected
@@ -131,16 +139,91 @@ import SocialLinks from "./SocialLinks.astro";
 						>
 						<option value="Other">Other</option>
 					</select>
+				</div>
+				<fieldset
+					x-show="showTourFields"
+					:disabled="!showTourFields"
+					class="flex space-x-20"
+				>
+					<div class="field">
+						<label for="00NUw000000FqxZ">Date</label>
+						<input
+							x-ref="picker"
+							type="text"
+							name="00NUw000000FqxZ"
+							id="00NUw000000FqxZ"
+							placeholder="Choose Date"
+							data-error-msg="a date is required"
+							x-validate.required
+						/>
+					</div>
+					<div class="field" x-show="showWeekday">
+						<label for="00NUw000000Fqj3">Weekday Hours</label>
+						<select
+							id="00NUw000000Fqj3"
+							name="00NUw000000Fqj3"
+							data-error-msg="you must choose a time"
+							x-validate.required
+							:disabled="!showWeekday"
+						>
+							<option value="" disabled selected
+								>Choose Time</option
+							>
+							<option value="6:00 AM">6:00 AM</option>
+							<option value="7:00 AM">7:00 AM</option>
+							<option value="8:00 AM">8:00 AM</option>
+							<option value="9:00 AM">9:00 AM</option>
+							<option value="10:00 AM">10:00 AM</option>
+							<option value="11:00 AM">11:00 AM</option>
+							<option value="12:00 PM">12:00 PM</option>
+							<option value="1:00 PM">1:00 PM</option>
+							<option value="2:00 PM">2:00 PM</option>
+							<option value="3:00 PM">3:00 PM</option>
+							<option value="4:00 PM">4:00 PM</option>
+							<option value="5:00 PM">5:00 PM</option>
+							<option value="6:00 PM">6:00 PM</option>
+							<option value="7:00 PM">7:00 PM</option>
+							<option value="8:00 PM">8:00 PM</option>
+							<option value="9:00 PM">9:00 PM</option>
+						</select>
+					</div>
+					<div class="field" x-show="showWeekend">
+						<label for="00NUw000000Fqvx">Weekend Hours</label>
+						<select
+							id="00NUw000000Fqvx"
+							name="00NUw000000Fqvx"
+							data-error-msg="you must choose a time"
+							x-validate.required
+							:disabled="!showWeekend"
+						>
+							<option value="" disabled selected
+								>Choose Time</option
+							>
+							<option value="8:00 AM">8:00 AM</option>
+							<option value="9:00 AM">9:00 AM</option>
+							<option value="10:00 AM">10:00 AM</option>
+							<option value="11:00 AM">11:00 AM</option>
+							<option value="12:00 PM">12:00 PM</option>
+							<option value="1:00 PM">1:00 PM</option>
+							<option value="2:00 PM">2:00 PM</option>
+							<option value="3:00 PM">3:00 PM</option>
+							<option value="4:00 PM">4:00 PM</option>
+							<option value="5:00 PM">5:00 PM</option>
+							<option value="6:00 PM">6:00 PM</option>
+							<option value="7:00 PM">7:00 PM</option>
+						</select>
+					</div>
 				</fieldset>
-				<fieldset>
+				<div class="field">
 					<label for="description">Message</label>
 					<textarea
+						id="description"
 						name="description"
 						rows="4"
 						placeholder="Can you teach this old dog some new tricks?"
 						x-validate.required
 						data-error-msg="a message is required"></textarea>
-				</fieldset>
+				</div>
 				<button
 					id="formSubmit"
 					type="submit"

@@ -1,14 +1,48 @@
-export default function form() {
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+
+export default function form(isContact = false) {
 	return {
+		isContact: isContact,
 		success: false,
 		firstName: "",
 		secondName: "",
+		subject: "",
+		showTourFields: false,
+		showWeekend: false,
+		showWeekday: false,
 		init() {
-			console.log("this is on staging");
 			this.checkForURLParams();
 			this.$nextTick(() => {
 				this.matchURLParams();
 			}, 300);
+			this.contactFormConditionals();
+		},
+		contactFormConditionals() {
+			if (this.isContact) {
+				let picker = flatpickr(this.$refs.picker, {
+					dateFormat: "m/d/Y",
+					onChange: (date) => {
+						const newDate = new Date(date);
+						const day = newDate.getDay();
+						if (day === 0 || day === 6) {
+							this.showWeekend = true;
+							this.showWeekday = false;
+						} else {
+							this.showWeekend = false;
+							this.showWeekday = true;
+						}
+					},
+				});
+
+				this.$watch("subject", (value) => {
+					if (value === "Schedule a Tour") {
+						this.showTourFields = true;
+					} else {
+						this.showTourFields = false;
+					}
+				});
+			}
 		},
 		matchURLParams() {
 			const form = this.$root.querySelector("form");

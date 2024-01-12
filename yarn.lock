@@ -2726,6 +2726,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flatpickr@npm:^4.6.13":
+  version: 4.6.13
+  resolution: "flatpickr@npm:4.6.13"
+  checksum: 0e027e72a2ce1716840a8c0bf9094f48d2665dc3f3024bf9604810c5bd7dd94aa830b133c5b5cfc0c330fc88939f33b54c8714515957f9d194c3a3bb7f75a1e2
+  languageName: node
+  linkType: hard
+
 "flattie@npm:^1.1.0":
   version: 1.1.0
   resolution: "flattie@npm:1.1.0"
@@ -4694,6 +4701,7 @@ __metadata:
     alpinejs: "npm:^3.13.3"
     astro: "npm:^4.0.4"
     autoprefixer: "npm:^10.4.16"
+    flatpickr: "npm:^4.6.13"
     mapbox-gl: "npm:^3.0.1"
     swiper: "npm:^11.0.5"
     tailwindcss: "npm:^3.3.6"
