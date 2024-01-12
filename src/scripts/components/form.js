@@ -4,6 +4,7 @@ export default function form() {
 		firstName: "",
 		secondName: "",
 		init() {
+			console.log("this is on staging");
 			this.checkForURLParams();
 			this.$nextTick(() => {
 				this.matchURLParams();
