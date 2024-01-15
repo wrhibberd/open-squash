@@ -94,33 +94,38 @@ const seoDescription =
 						name="lead_source"
 						value="Summer Camp Inquiries"
 					/>
-					<fieldset>
-						<label for="first_name">First Name</label>
-						<input
-							type="text"
-							name="first_name"
-							maxlength="40"
-							x-model="firstName"
-							placeholder="Jahangir"
-							data-error-msg="a first name is required"
-							x-validate.required
-						/>
+					<fieldset class="flex space-x-20">
+						<div class="field">
+							<label for="first_name">First Name</label>
+							<input
+								id="first_name"
+								type="text"
+								name="first_name"
+								maxlength="40"
+								x-model="firstName"
+								placeholder="Jahangir"
+								data-error-msg="a first name is required"
+								x-validate.required
+							/>
+						</div>
+						<div class="field">
+							<label for="last_name">Second Name</label>
+							<input
+								id="last_name"
+								type="text"
+								name="last_name"
+								maxlength="80"
+								x-model="secondName"
+								placeholder="Khan"
+								data-error-msg="a second name is required"
+								x-validate.required
+							/>
+						</div>
 					</fieldset>
-					<fieldset>
-						<label for="last_name">Second Name</label>
-						<input
-							type="text"
-							name="last_name"
-							maxlength="80"
-							x-model="secondName"
-							placeholder="Khan"
-							data-error-msg="a second name is required"
-							x-validate.required
-						/>
-					</fieldset>
-					<fieldset>
+					<div class="field">
 						<label for="email">Email</label>
 						<input
+							id="email"
 							type="email"
 							name="email"
 							maxlength="80"
@@ -129,19 +134,21 @@ const seoDescription =
 							x-validate.required
 							x-validate.email
 						/>
-					</fieldset>
-					<fieldset>
+					</div>
+					<div class="field">
 						<label for="phone">Phone Number</label>
 						<input
+							id="phone"
 							type="tel"
 							name="phone"
 							maxlength="40"
 							placeholder="576 731-6777"
 						/>
-					</fieldset>
-					<fieldset>
+					</div>
+					<div class="field">
 						<label for="00N5a00000CiOwW">Experience Level</label>
 						<select
+							id="00N5a00000CiOwW"
 							name="00N5a00000CiOwW"
 							x-validate.required
 							data-error-msg="you must pick an experience level"
@@ -153,7 +160,7 @@ const seoDescription =
 							<option value="Intermediate">Intermediate</option>
 							<option value="Advanced">Advanced</option>
 						</select>
-					</fieldset>
+					</div>
 					<button
 						id="formSubmit"
 						type="submit"
