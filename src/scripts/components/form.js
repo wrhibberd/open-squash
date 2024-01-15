@@ -166,6 +166,7 @@ export default function form(isContact = false) {
 		},
 
 		formSuccess() {
+			gtag("event", "Form-submitted");
 			this.success = true;
 		},
 	};
