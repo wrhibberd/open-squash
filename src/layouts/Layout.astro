@@ -58,7 +58,24 @@ const {
 			name="google-site-verification"
 			content="lwNaTAjv7uYJce8vzTjtkSCZ_ghldIGqCYwiVaj3QlQ"
 		/>
-		<script
+
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					"gtm.start": new Date().getTime(),
+					event: "gtm.js",
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-PQL3DML");
+		</script>
+
+		<!-- <script
 			is:inline
 			defer
 			async
@@ -74,7 +91,7 @@ const {
 			gtag("js", new Date());
 
 			gtag("config", "GTM-PQL3DML");
-		</script>
+		</script> -->
 		<ViewTransitions fallback="none" />
 	</head>
 	<body class="flex flex-col min-h-screen bg-white pb-10 sm:pb-20">
@@ -86,5 +103,12 @@ const {
 			<slot />
 		</main>
 		<Footer />
+		<noscript
+			><iframe
+				src="https://www.googletagmanager.com/ns.html?id=GTM-PQL3DML"
+				height="0"
+				width="0"
+				style="display:none;visibility:hidden"></iframe></noscript
+		>
 	</body>
 </html>
