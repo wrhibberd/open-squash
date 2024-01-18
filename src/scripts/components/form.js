@@ -77,11 +77,22 @@ export default function form(isContact = false) {
 		checkForURLParams() {
 			const form = this.$root.querySelector("form");
 			const urlParams = new URLSearchParams(window.location.search);
-			const source = urlParams.get("utm_source");
-			const medium = urlParams.get("utm_medium");
-			const term = urlParams.get("utm_term");
-			const campaign = urlParams.get("utm_campaign");
-			const content = urlParams.get("utm_content");
+
+			const source =
+				urlParams.get("utm_source") ||
+				this.$store.global.sessionParams.utm_source;
+			const medium =
+				urlParams.get("utm_medium") ||
+				this.$store.global.sessionParams.utm_medium;
+			const term =
+				urlParams.get("utm_term") ||
+				this.$store.global.sessionParams.utm_term;
+			const campaign =
+				urlParams.get("utm_campaign") ||
+				this.$store.global.sessionParams.utm_campaign;
+			const content =
+				urlParams.get("utm_content") ||
+				this.$store.global.sessionParams.utm_content;
 			if (source) {
 				// add hidden input to form
 				const sourceInput = document.createElement("input");

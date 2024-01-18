@@ -31,6 +31,43 @@ Alpine.data("locationsMap", locationsMap);
 /* Alpine global store */
 Alpine.store("global", {
 	showTicker: Alpine.$persist(true).using(localStorage),
+	sessionParams: Alpine.$persist({}).using(sessionStorage),
+	init() {
+		// ?utm_source=source&utm_campaign=campaign&utm_medium=medium&utm_term=term&utm_content=content
+		setTimeout(() => {
+			const urlParams = new URLSearchParams(window.location.search);
+			if (urlParams.has("utm_source")) {
+				this.sessionParams = {
+					...this.sessionParams,
+					utm_source: urlParams.get("utm_source"),
+				};
+			}
+			if (urlParams.has("utm_medium")) {
+				this.sessionParams = {
+					...this.sessionParams,
+					utm_medium: urlParams.get("utm_medium"),
+				};
+			}
+			if (urlParams.has("utm_term")) {
+				this.sessionParams = {
+					...this.sessionParams,
+					utm_term: urlParams.get("utm_term"),
+				};
+			}
+			if (urlParams.has("utm_campaign")) {
+				this.sessionParams = {
+					...this.sessionParams,
+					utm_campaign: urlParams.get("utm_campaign"),
+				};
+			}
+			if (urlParams.has("utm_content")) {
+				this.sessionParams = {
+					...this.sessionParams,
+					utm_content: urlParams.get("utm_content"),
+				};
+			}
+		}, 100);
+	},
 });
 
 /* Start Alpine */
