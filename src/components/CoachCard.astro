@@ -14,11 +14,10 @@ const { coach } = Astro.props;
 					src={coach.image}
 					alt={coach.name}
 					widths={[400, 800, 1200]}
-					sizes="auto"
 					formats={["webp", "avif"]}
 					fallbackFormat="jpg"
 					pictureAttributes={{
-						class: "w-full aspect-square",
+						class: "w-full",
 					}}
 					class="object-cover aspect-square w-full h-full object-top"
 				/>
